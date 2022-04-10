@@ -1,6 +1,6 @@
 # In _config.yml
-title: Notes
-author: Varun
+title: "Notes, thoughts and howto's"
+author: "Varun Sharma"
 execute:
   execute_notebooks: 'off'
 only_build_toc_files: true
