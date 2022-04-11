@@ -1,3 +1,3 @@
 # BKAH
 
-URL: /home/runner/work/template_test/template_test/output
+URL: git://github.com/vsharma-next/template_test.git
