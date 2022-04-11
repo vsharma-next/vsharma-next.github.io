@@ -1,10 +1,46 @@
-# How to create a website ?
+# Initial setup for creating a website
 
 ## Step 1 - getting a domain name
 
 TODO
 
 ## Step 2 - getting a virtual private server (VPS) and initial setup
+
+Buy a cheap VPS from somewhere. The best deal I found was from contabo.de - i got their absolute cheapest VPS. follow their steps and when you are done, you should get an email with the IP adrress of the VPS ( the password is typically set at the time of signup + purchase). In contabo, I could choose in advance the OS i wanted and I chose Ubuntu 20.04
+
+1. first login
+
+```
+ssh root@your_server_ip
+```
+
+2. it is a good idea to create a user and _NOT_ operate from root.
+
+```
+adduser johndoe
+```
+
+3. The new user should still have access to sudo priviliges
+
+```
+adduser -aG sudo johndoe
+```
+
+4. pre-step: allow firewall (ufw) to keep ssh ports open
+
+```
+ufw allow OpenSSH
+```
+
+5. main-step: enable firewall
+
+```
+ufw enable
+```
+
+6. logout - vps bare setup is done !
+
+7. nice to have - setup passwordless access to ssh services.
 
 ## Step 3 - connecting the domain name to vps.
 
