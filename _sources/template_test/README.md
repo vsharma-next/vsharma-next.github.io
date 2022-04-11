@@ -1,3 +1,3 @@
 # BKAH
 
-URL: git://github.com/vsharma-next/template_test.git
+URL: https://github.com/vsharma-next/template_test.git
