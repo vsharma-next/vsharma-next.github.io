@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DEMO to test auto consolidation of the logs &#8212; Notes, thoughts and howto&#39;s</title>
+    <title>Ubuntu’s firewall (UFW) &#8212; Notes, thoughts and howto&#39;s</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,8 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Illa inclusaque videtur mites" href="01-test.html" />
-    <link rel="prev" title="A consolidated view to vsharma-next" href="../index.html" />
+    <link rel="next" title="TO EDIT FOR NEW REPOSITORIES" href="../template-repo/README.html" />
+    <link rel="prev" title="How to setup NGINX + docker on VPS" href="02_setting_up_nginx_docker.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -94,55 +94,55 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../demo_1/README.html">
    Demo 1
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="01-test.html">
+    <a class="reference internal" href="../demo_1/01-test.html">
      01-test
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="02-test.html">
+    <a class="reference internal" href="../demo_1/02-test.html">
      02-test
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="03-test.html">
+    <a class="reference internal" href="../demo_1/03-test.html">
      03-test
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../notes/README.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="README.html">
    Notes
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="../notes/01_initial_steps_for_www.html">
+    <a class="reference internal" href="01_initial_steps_for_www.html">
      Initial steps for www
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../notes/02_setting_up_nginx_docker.html">
+    <a class="reference internal" href="02_setting_up_nginx_docker.html">
      Setting up nginx docker
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../notes/03_allabout_ufw.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Allabout ufw
     </a>
    </li>
@@ -233,7 +233,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/demo_1/README.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/notes/03_allabout_ufw.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -277,8 +277,18 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#about-this-repo">
-   About this repo
+  <a class="reference internal nav-link" href="#what-is-ufw">
+   What is UFW
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#links">
+   Links
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-did-i-use-it">
+   Why did I use it
   </a>
  </li>
 </ul>
@@ -291,7 +301,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>DEMO to test auto consolidation of the logs</h1>
+                <h1>Ubuntu’s firewall (UFW)</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -302,8 +312,18 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#about-this-repo">
-   About this repo
+  <a class="reference internal nav-link" href="#what-is-ufw">
+   What is UFW
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#links">
+   Links
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-did-i-use-it">
+   Why did I use it
   </a>
  </li>
 </ul>
@@ -315,19 +335,38 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="demo-to-test-auto-consolidation-of-the-logs">
-<h1>DEMO to test auto consolidation of the logs<a class="headerlink" href="#demo-to-test-auto-consolidation-of-the-logs" title="Permalink to this headline">¶</a></h1>
-<p>URL: <a class="reference external" href="https://github.com/vsharma-next/demo_1.git">https://github.com/vsharma-next/demo_1.git</a></p>
-<div class="section" id="about-this-repo">
-<h2>About this repo<a class="headerlink" href="#about-this-repo" title="Permalink to this headline">¶</a></h2>
-<p>This repo contains a few files for rendering on <a class="reference external" href="http://vsharma-next.github.io">vsharma-next.github.io</a></p>
-<ul class="simple">
-<li><p><a class="reference external" href="http://01-test.md">01-test.md</a></p></li>
-<li><p><a class="reference external" href="http://02-test.md">02-test.md</a></p></li>
-<li><p><a class="reference external" href="http://03-test.md">03-test.md</a></p></li>
-</ul>
+  <div class="tex2jax_ignore mathjax_ignore section" id="ubuntu-s-firewall-ufw">
+<h1>Ubuntu’s firewall (UFW)<a class="headerlink" href="#ubuntu-s-firewall-ufw" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-ufw">
+<h2>What is UFW<a class="headerlink" href="#what-is-ufw" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="toctree-wrapper compound">
+<div class="section" id="links">
+<h2>Links<a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h2>
+<p>Details from</p>
+<ol class="simple">
+<li><p><a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-18-04">digitalocean</a></p></li>
+<li><p><a class="reference external" href="https://fedingo.com/how-to-check-open-ports-in-ufw/">random google result</a></p></li>
+</ol>
+</div>
+<div class="section" id="why-did-i-use-it">
+<h2>Why did I use it<a class="headerlink" href="#why-did-i-use-it" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>when a new vps was created, all ports were closed EXCEPT OpenSSH</p></li>
+<li><p>later, when testing some docker stuff - for example during installing bookstackapp - all ports were closed and so, I had to open https as</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">ufw</span> <span class="n">allow</span> <span class="n">https</span>
+</pre></div>
+</div>
+<p>OR</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">ufw</span> <span class="n">allow</span> <span class="mi">443</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>To check which ports are open</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">ufw</span> <span class="n">status</span>
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -344,7 +383,7 @@ const thebe_selector_output = ".output, .cell_output"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./demo_1"
+            path: "./notes"
         },
         predefinedOutput: true
     }
@@ -356,17 +395,17 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../index.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="02_setting_up_nginx_docker.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">A consolidated view to vsharma-next</p>
+            <p class="prev-next-title">How to setup NGINX + docker on VPS</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="01-test.html" title="next page">
+    <a class='right-next' id="next-link" href="../template-repo/README.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Illa inclusaque videtur mites</p>
+        <p class="prev-next-title">TO EDIT FOR NEW REPOSITORIES</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
