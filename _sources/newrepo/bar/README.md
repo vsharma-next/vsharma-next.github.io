@@ -1,2 +1,0 @@
-BKAH
-bar
