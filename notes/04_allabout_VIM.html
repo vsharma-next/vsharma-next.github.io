@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>This is a jupyter notebook at the top level &#8212; Notes, thoughts and howto&#39;s</title>
+    <title>VIM: tips and tricks &#8212; Notes, thoughts and howto&#39;s</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,8 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="BAR" href="bar/README.html" />
-    <link rel="prev" title="TO EDIT FOR NEW REPOSITORIES" href="README.html" />
+    <link rel="next" title="TO EDIT FOR NEW REPOSITORIES" href="../template-repo/README.html" />
+    <link rel="prev" title="Ubuntu’s firewall (UFW)" href="03_allabout_ufw.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -121,60 +121,60 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../notes/README.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="README.html">
    Notes
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="../notes/01_initial_steps_for_www.html">
+    <a class="reference internal" href="01_initial_steps_for_www.html">
      Initial steps for www
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../notes/02_setting_up_nginx_docker.html">
+    <a class="reference internal" href="02_setting_up_nginx_docker.html">
      Setting up nginx docker
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../notes/03_allabout_ufw.html">
+    <a class="reference internal" href="03_allabout_ufw.html">
      Allabout ufw
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../notes/04_allabout_VIM.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Allabout vim
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="README.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../template-repo/README.html">
    Template-repo
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../template-repo/test.html">
      Test
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="bar/README.html">
+    <a class="reference internal" href="../template-repo/bar/README.html">
      Bar
     </a>
    </li>
    <li class="toctree-l2 has-children">
-    <a class="reference internal" href="foo/README.html">
+    <a class="reference internal" href="../template-repo/foo/README.html">
      Foo
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
@@ -184,12 +184,12 @@ const thebe_selector_output = ".output, .cell_output"
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="foo/test.html">
+      <a class="reference internal" href="../template-repo/foo/test.html">
        Test
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="foo/foo_1/test.html">
+      <a class="reference internal" href="../template-repo/foo/foo_1/test.html">
        Test
       </a>
      </li>
@@ -238,9 +238,9 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/template-repo/test.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/notes/04_allabout_VIM.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
+                data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -282,8 +282,8 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#this-is-just-a-test">
-   this is just a test
+  <a class="reference internal nav-link" href="#list-of-commands-for-setting-up-vim">
+   List of commands for setting up VIM
   </a>
  </li>
 </ul>
@@ -296,7 +296,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>This is a jupyter notebook at the top level</h1>
+                <h1>VIM: tips and tricks</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -307,8 +307,8 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#this-is-just-a-test">
-   this is just a test
+  <a class="reference internal nav-link" href="#list-of-commands-for-setting-up-vim">
+   List of commands for setting up VIM
   </a>
  </li>
 </ul>
@@ -320,10 +320,55 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="this-is-a-jupyter-notebook-at-the-top-level">
-<h1>This is a jupyter notebook at the top level<a class="headerlink" href="#this-is-a-jupyter-notebook-at-the-top-level" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="this-is-just-a-test">
-<h2>this is just a test<a class="headerlink" href="#this-is-just-a-test" title="Permalink to this headline">¶</a></h2>
+  <div class="tex2jax_ignore mathjax_ignore section" id="vim-tips-and-tricks">
+<h1>VIM: tips and tricks<a class="headerlink" href="#vim-tips-and-tricks" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="list-of-commands-for-setting-up-vim">
+<h2>List of commands for setting up VIM<a class="headerlink" href="#list-of-commands-for-setting-up-vim" title="Permalink to this headline">¶</a></h2>
+<p><strong>NOTE :</strong> you can run this commands inside VIM with a “:” in the beginning <strong>OR</strong> store these commands in (.vimrc) in your home folder.</p>
+<p>Source:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://linuxhint.com/configure_vim_vimrc/">random googling</a></p></li>
+<li><p><a class="reference external" href="https://www.freecodecamp.org/news/vimrc-configuration-guide-customize-your-vim-editor/">freecodecamp</a></p></li>
+</ul>
+<ol class="simple">
+<li><p>show line number</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span> <span class="n">number</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>enable syntax highlighting</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">syntax</span> <span class="n">on</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>enable auto indentation</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span> <span class="n">autoindent</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>for fortran f90 files</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">let</span> <span class="n">b</span><span class="p">:</span><span class="n">fortran_fixed_source</span><span class="o">=</span><span class="mi">0</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>replacing tab with white space: When you insert tabs into your codes and save it and send it to someone else, he/she must use the same tab size as you did. Otherwise, the code would look very ugly.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span> <span class="n">expandtab</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>set cursor lines and columns</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span> <span class="n">cursorline</span>
+<span class="nb">set</span> <span class="n">cursorcolumn</span>
+</pre></div>
+</div>
+<p>This is how it looks like:</p>
+<p><img alt="" src="../_images/2022-04-12-10-14-33.png" /></p>
 </div>
 </div>
 
@@ -340,7 +385,7 @@ const thebe_selector_output = ".output, .cell_output"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./template-repo"
+            path: "./notes"
         },
         predefinedOutput: true
     }
@@ -352,17 +397,17 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="README.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="03_allabout_ufw.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">TO EDIT FOR NEW REPOSITORIES</p>
+            <p class="prev-next-title">Ubuntu’s firewall (UFW)</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="bar/README.html" title="next page">
+    <a class='right-next' id="next-link" href="../template-repo/README.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">BAR</p>
+        <p class="prev-next-title">TO EDIT FOR NEW REPOSITORIES</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
