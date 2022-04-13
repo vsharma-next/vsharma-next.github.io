@@ -151,6 +151,16 @@ const thebe_selector_output = ".output, .cell_output"
      Allabout vim
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_setting_up_d-npm-port.html">
+     Setting up d-npm-port
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_cosmo.html">
+     Cosmo
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -370,6 +380,24 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>To check which ports are open</p></li>
 </ol>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">ufw</span> <span class="n">status</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>allow firewall (ufw) to keep ssh ports open</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ufw</span> <span class="n">allow</span> <span class="n">OpenSSH</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>main-step: enable firewall</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ufw</span> <span class="n">enable</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Something goes wrong</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">ufw</span> <span class="n">reset</span>
 </pre></div>
 </div>
 </div>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NOTES &#8212; Notes, thoughts and howto&#39;s</title>
+    <title>Installing docker, docker-compose, nginx-proxy-manager and portainer &#8212; Notes, thoughts and howto&#39;s</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,8 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Initial setup for creating a website" href="01_initial_steps_for_www.html" />
-    <link rel="prev" title="Insidiosa undas frequentes rector" href="../demo_1/03-test.html" />
+    <link rel="next" title="Understanding COSMO" href="06_cosmo.html" />
+    <link rel="prev" title="VIM: tips and tricks" href="04_allabout_VIM.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -122,7 +122,7 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+  <a class="reference internal" href="README.html">
    Notes
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
@@ -130,7 +130,7 @@ const thebe_selector_output = ".output, .cell_output"
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="01_initial_steps_for_www.html">
      Initial steps for www
@@ -151,8 +151,8 @@ const thebe_selector_output = ".output, .cell_output"
      Allabout vim
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="05_setting_up_d-npm-port.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Setting up d-npm-port
     </a>
    </li>
@@ -248,7 +248,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/notes/README.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/notes/05_setting_up_d-npm-port.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -292,14 +292,48 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#about">
-   About
+  <a class="reference internal nav-link" href="#steps-taken">
+   Steps taken
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#how-to-navigate">
-   How to navigate
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#update-system">
+     update system
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#open-http-ports">
+     open http ports
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setting-up-nginx-proxy-manager-npm">
+     setting up nginx-proxy-manager (npm)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#download-the-docker-compose-yml">
+       download the docker-compose.yml
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#spin-up-nginx-proxy-manager">
+       spin up nginx-proxy-manager
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setup-portainer">
+     setup portainer
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setting-up-npm-and-portainer-on-web-gui-directly">
+     setting up npm and portainer on web gui directly
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -311,7 +345,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>NOTES</h1>
+                <h1>Installing docker, docker-compose, nginx-proxy-manager and portainer</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -322,14 +356,48 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#about">
-   About
+  <a class="reference internal nav-link" href="#steps-taken">
+   Steps taken
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#how-to-navigate">
-   How to navigate
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#update-system">
+     update system
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#open-http-ports">
+     open http ports
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setting-up-nginx-proxy-manager-npm">
+     setting up nginx-proxy-manager (npm)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#download-the-docker-compose-yml">
+       download the docker-compose.yml
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#spin-up-nginx-proxy-manager">
+       spin up nginx-proxy-manager
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setup-portainer">
+     setup portainer
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setting-up-npm-and-portainer-on-web-gui-directly">
+     setting up npm and portainer on web gui directly
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -340,19 +408,104 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="notes">
-<h1>NOTES<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h1>
-<p>URL: <a class="reference external" href="https://github.com/vsharma-next/notes.git">https://github.com/vsharma-next/notes.git</a></p>
-<div class="section" id="about">
-<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
-<p>This repository consists of notes relevant for <em>tech-work</em>.</p>
-<p>Notes are typically for writings not associated with any particular repository. For repositories, there are notes within them.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="installing-docker-docker-compose-nginx-proxy-manager-and-portainer">
+<h1>Installing docker, docker-compose, nginx-proxy-manager and portainer<a class="headerlink" href="#installing-docker-docker-compose-nginx-proxy-manager-and-portainer" title="Permalink to this headline">¶</a></h1>
+<p>Source: <a class="reference external" href="https://www.youtube.com/watch?v=TdEKVPWbC58&amp;ab_channel=AwesomeOpenSource">awesome open source</a></p>
+<p>Status: Reset - not sure will follow this method.</p>
+<div class="section" id="steps-taken">
+<h2>Steps taken<a class="headerlink" href="#steps-taken" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li></li>
+</ol>
+<div class="section" id="update-system">
+<h3>update system<a class="headerlink" href="#update-system" title="Permalink to this headline">¶</a></h3>
 </div>
-<div class="section" id="how-to-navigate">
-<h2>How to navigate<a class="headerlink" href="#how-to-navigate" title="Permalink to this headline">¶</a></h2>
-<p>At this point, there is no intended structure for this repo. All notes are going to be thrown in as and when necessary. <strong>The best way to navigate is through the left side bar</strong>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">update</span> <span class="o">-</span><span class="n">y</span> <span class="o">&gt;</span> <span class="o">~/</span><span class="n">logs</span><span class="o">/</span><span class="n">docker</span><span class="o">-</span><span class="n">script</span><span class="o">-</span><span class="n">install</span><span class="o">.</span><span class="n">log</span>
+</pre></div>
 </div>
-<div class="toctree-wrapper compound">
+<ol class="simple">
+<li></li>
+</ol>
+<div class="section" id="open-http-ports">
+<h3>open http ports<a class="headerlink" href="#open-http-ports" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">ufw</span> <span class="n">allow</span> <span class="n">http</span>
+</pre></div>
+</div>
+<p><em>note</em>: https was already opened earlier</p>
+<ol class="simple">
+<li></li>
+</ol>
+<div class="section" id="setting-up-nginx-proxy-manager-npm">
+<h3>setting up nginx-proxy-manager (npm)<a class="headerlink" href="#setting-up-nginx-proxy-manager-npm" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="download-the-docker-compose-yml">
+<h4>download the docker-compose.yml<a class="headerlink" href="#download-the-docker-compose-yml" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="n">docker</span><span class="o">/</span><span class="n">nginx</span><span class="o">-</span><span class="n">proxy</span><span class="o">-</span><span class="n">manager</span>
+
+<span class="n">cd</span> <span class="n">docker</span><span class="o">/</span><span class="n">nginx</span><span class="o">-</span><span class="n">proxy</span><span class="o">-</span><span class="n">manager</span>
+
+<span class="n">curl</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">gitlab</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">bmcgonag</span><span class="o">/</span><span class="n">docker_installs</span><span class="o">/-/</span><span class="n">raw</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">docker_compose</span><span class="o">.</span><span class="n">nginx_proxy_manager</span><span class="o">.</span><span class="n">yml</span> <span class="o">-</span><span class="n">o</span> <span class="n">docker</span><span class="o">-</span><span class="n">compose</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+<p><em>note</em>: save docker-compose.yml somewhere</p>
+</div>
+<div class="section" id="spin-up-nginx-proxy-manager">
+<h4>spin up nginx-proxy-manager<a class="headerlink" href="#spin-up-nginx-proxy-manager" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">up</span> <span class="o">-</span><span class="n">d</span>
+</pre></div>
+</div>
+<p><em>the -d launches the docker container in the background, thereby freeing up the terminal</em></p>
+<ol class="simple">
+<li></li>
+</ol>
+<ul class="simple">
+<li><p>create docker volume for portainer</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">docker</span> <span class="n">volume</span> <span class="n">create</span> <span class="n">portainer_data</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>install portainer-ce</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">d</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8000</span><span class="p">:</span><span class="mi">8000</span> <span class="o">-</span><span class="n">p</span> <span class="mi">9000</span><span class="p">:</span><span class="mi">9000</span> <span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="n">portainer</span> <span class="o">--</span><span class="n">restart</span><span class="o">=</span><span class="n">always</span> <span class="o">-</span><span class="n">v</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">docker</span><span class="o">.</span><span class="n">sock</span><span class="p">:</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">docker</span><span class="o">.</span><span class="n">sock</span> <span class="o">-</span><span class="n">v</span> <span class="n">portainer_data</span><span class="p">:</span><span class="o">/</span><span class="n">data</span> <span class="n">portainer</span><span class="o">/</span><span class="n">portainer</span><span class="o">-</span><span class="n">ce</span>
+</pre></div>
+</div>
+<p>WHOOPS made a mistake - installed Portainer-agent instead of Portainer-CE</p>
+<p>[got help from] (<a class="reference external" href="https://linuxize.com/post/how-to-remove-docker-images-containers-volumes-and-networks/">https://linuxize.com/post/how-to-remove-docker-images-containers-volumes-and-networks/</a>)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># got the container ID from docker ps and stopped it first</span>
+<span class="n">docker</span> <span class="n">stop</span> <span class="mi">3988</span><span class="n">ec92833d</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># listing all docker containers</span>
+<span class="n">docker</span> <span class="n">container</span> <span class="n">ls</span> <span class="o">-</span><span class="n">a</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># removing containers not working currently</span>
+<span class="n">docker</span> <span class="n">container</span> <span class="n">prune</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># removing networks / volumes / images and containers</span>
+<span class="n">docker</span> <span class="n">system</span> <span class="n">prune</span> <span class="o">-</span><span class="n">a</span>
+</pre></div>
+</div>
+<p><em>note: this also removed some older stuff that I had installed but forgotten about</em></p>
+<ol class="simple">
+<li></li>
+</ol>
+<p>Make sure that the relevant ports are open through the firewall.</p>
+<ul class="simple">
+<li><p>npm: port 81</p></li>
+<li><p>portainer: port 9000</p></li>
+</ul>
+<p>ofcourse - make sure that at this point, port 80 (http) and port 443 (https) are also open.</p>
+</div>
+</div>
+<div class="section" id="setup-portainer">
+<h3>setup portainer<a class="headerlink" href="#setup-portainer" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="setting-up-npm-and-portainer-on-web-gui-directly">
+<h3>setting up npm and portainer on web gui directly<a class="headerlink" href="#setting-up-npm-and-portainer-on-web-gui-directly" title="Permalink to this headline">¶</a></h3>
+</div>
 </div>
 </div>
 
@@ -381,17 +534,17 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../demo_1/03-test.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="04_allabout_VIM.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Insidiosa undas frequentes rector</p>
+            <p class="prev-next-title">VIM: tips and tricks</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="01_initial_steps_for_www.html" title="next page">
+    <a class='right-next' id="next-link" href="06_cosmo.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Initial setup for creating a website</p>
+        <p class="prev-next-title">Understanding COSMO</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

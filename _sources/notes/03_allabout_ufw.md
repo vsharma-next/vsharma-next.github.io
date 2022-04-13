@@ -29,3 +29,21 @@ sudo ufw allow 443
 ```
 sudo ufw status
 ```
+
+4. allow firewall (ufw) to keep ssh ports open
+
+```
+ufw allow OpenSSH
+```
+
+5. main-step: enable firewall
+
+```
+ufw enable
+```
+
+6. Something goes wrong
+
+```
+sudo ufw reset
+```
