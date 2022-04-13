@@ -1,5 +1,7 @@
 # How to setup NGINX + docker on VPS
 
+**NOTE** : this approach may be abandoned in production !
+
 ## First step: setting up docker
 
 1. installing docker from apt
