@@ -17,3 +17,11 @@ grep -i -r -o '\w*itype\w*' ./sfc_terra.f90 | sort | uniq
 ```
 
 returns only unique values from the match
+
+## sudo apt
+
+- to suppress output and assume yes to all imports
+
+```
+sudo apt-get -yqq instal xxxyyyzzz
+```

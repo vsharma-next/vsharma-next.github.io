@@ -1,0 +1,877 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Setting up fresh VPS with nginx reverse proxy and 2 demo apps &#8212; Notes, thoughts and howto&#39;s</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="A hello world example for using vscode with anki" href="HW_vscode_anki.html" />
+    <link rel="prev" title="Using vscode on CSCS for MCH" href="12_vscode_on_cscs.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Notes, thoughts and howto's</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   A consolidated view to vsharma-next
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../demo_1/README.html">
+   Demo 1
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../demo_1/01-test.html">
+     01-test
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../demo_1/02-test.html">
+     02-test
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../demo_1/03-test.html">
+     03-test
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="README.html">
+   Notes
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_initial_steps_for_www.html">
+     Initial steps for www
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_setting_up_nginx_docker.html">
+     Setting up nginx docker
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_allabout_ufw.html">
+     Allabout ufw
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_allabout_VIM.html">
+     Allabout vim
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_setting_up_d-npm-port.html">
+     Setting up d-npm-port
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_allabout_docker.html">
+     Allabout docker
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_cosmo.html">
+     Cosmo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="07_allabout_bashcli.html">
+     Allabout bashcli
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="08_initial_vps_setup.html">
+     Initial vps setup
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="09_settingup_nginx.html">
+     Settingup nginx
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="10_anki.html">
+     Anki
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="11_modifying_bash_history.html">
+     Modifying bash history
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="12_vscode_on_cscs.html">
+     Vscode on cscs
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Default setup
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="HW_vscode_anki.html">
+     Hw vscode anki
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="random_ubuntu_stuff.html">
+     Random ubuntu stuff
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../template-repo/README.html">
+   Template-repo
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../template-repo/test.html">
+     Test
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../template-repo/bar/README.html">
+     Bar
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../template-repo/foo/README.html">
+     Foo
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../template-repo/foo/test.html">
+       Test
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../template-repo/foo/foo_1/test.html">
+       Test
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notes/default_setup.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/vsharma-next/vsharma-next.github.io/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pre-app-install">
+   PRE-APP INSTALL
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setup-bash-history-settings-properly">
+     0. setup bash history settings properly
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setup-new-user-username-boss">
+     1. setup new user (username: boss)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setup-firewall-ufw">
+     2. Setup firewall (UFW)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#enable-passwordless-access-to-vps">
+     3. Enable passwordless access to VPS.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#installing-nginx-for-proxy-on-vps">
+     4. installing nginx for proxy on VPS
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setup-a-static-page-as-test">
+     5. setup a static page as test.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#add-ssl-certificates-using-certbot">
+     0. add SSL certificates using Certbot
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setting-up-docker-and-docker-compose-on-vps">
+   Setting up docker and docker compose on VPS
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#install-app-1-bookstack">
+   Install App #1: Bookstack
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#install-app-2-openproject">
+   Install App #2: Openproject
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Setting up fresh VPS with nginx reverse proxy and 2 demo apps</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pre-app-install">
+   PRE-APP INSTALL
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setup-bash-history-settings-properly">
+     0. setup bash history settings properly
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setup-new-user-username-boss">
+     1. setup new user (username: boss)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setup-firewall-ufw">
+     2. Setup firewall (UFW)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#enable-passwordless-access-to-vps">
+     3. Enable passwordless access to VPS.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#installing-nginx-for-proxy-on-vps">
+     4. installing nginx for proxy on VPS
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setup-a-static-page-as-test">
+     5. setup a static page as test.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#add-ssl-certificates-using-certbot">
+     0. add SSL certificates using Certbot
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setting-up-docker-and-docker-compose-on-vps">
+   Setting up docker and docker compose on VPS
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#install-app-1-bookstack">
+   Install App #1: Bookstack
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#install-app-2-openproject">
+   Install App #2: Openproject
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="setting-up-fresh-vps-with-nginx-reverse-proxy-and-2-demo-apps">
+<h1>Setting up fresh VPS with nginx reverse proxy and 2 demo apps<a class="headerlink" href="#setting-up-fresh-vps-with-nginx-reverse-proxy-and-2-demo-apps" title="Permalink to this headline">¶</a></h1>
+<p><strong>Input</strong>:</p>
+<ol class="simple">
+<li><p>Root access to a VPS with ubuntu 20.04</p></li>
+<li><p>Domain name with dns settings (A records) pointing to the IP address of the VPS</p></li>
+</ol>
+<p><strong>Steps</strong>:</p>
+<div class="section" id="pre-app-install">
+<h2>PRE-APP INSTALL<a class="headerlink" href="#pre-app-install" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="setup-bash-history-settings-properly">
+<h3>0. setup bash history settings properly<a class="headerlink" href="#setup-bash-history-settings-properly" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>login into to root&#64;ip_address</p></li>
+<li><p>edit /etc/bash.bashrc to add the following lines</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print the timestamp of each command</span>
+<span class="n">HISTTIMEFORMAT</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%F</span><span class="s1"> %T &#39;</span>
+
+<span class="c1"># Save 100000 lines of history in memory</span>
+<span class="n">HISTSIZE</span><span class="o">=</span><span class="mi">100000</span>
+<span class="c1"># Save 2,000,000 lines of history to disk (will have to grep ~/.bash_history for full listing)</span>
+<span class="n">HISTFILESIZE</span><span class="o">=</span><span class="mi">2000000</span>
+<span class="c1"># Do not store a duplicate of the last entered command</span>
+<span class="n">HISTCONTROL</span><span class="o">=</span><span class="n">ignoredups</span>
+<span class="c1"># Ignore more</span>
+<span class="n">HISTIGNORE</span><span class="o">=</span><span class="s1">&#39;ls:ll:ll -htr:clear:history&#39;</span>
+
+<span class="c1"># Configure BASH to append (rather than overwrite the history):</span>
+<span class="n">shopt</span> <span class="o">-</span><span class="n">s</span> <span class="n">histappend</span>
+
+<span class="c1"># Attempt to save all lines of a multiple-line command in the same entry</span>
+<span class="n">shopt</span> <span class="o">-</span><span class="n">s</span> <span class="n">cmdhist</span>
+
+<span class="c1"># save multi-line commands to the history with embedded newlines</span>
+<span class="n">shopt</span> <span class="o">-</span><span class="n">s</span> <span class="n">lithist</span>
+
+<span class="c1"># After each command, append to the history file and reread it</span>
+<span class="n">export</span> <span class="n">PROMPT_COMMAND</span><span class="o">=</span><span class="s2">&quot;${PROMPT_COMMAND:+$PROMPT_COMMAND$&quot;</span>\<span class="n">n</span><span class="s2">&quot;}history -a; history -c; history -r&quot;</span>
+</pre></div>
+</div>
+<p>Source: Source: <a class="reference external" href="https://www.thomaslaurenson.com/blog/2018-07-02/better-bash-history/">https://www.thomaslaurenson.com/blog/2018-07-02/better-bash-history/</a></p>
+</div>
+<div class="section" id="setup-new-user-username-boss">
+<h3>1. setup new user (username: boss)<a class="headerlink" href="#setup-new-user-username-boss" title="Permalink to this headline">¶</a></h3>
+<p>login to VPS as root. Then …</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add new user</span>
+<span class="n">adduser</span> <span class="n">boss</span>
+
+<span class="c1"># provide admin priviliges to boss</span>
+<span class="n">usermod</span> <span class="o">-</span><span class="n">aG</span> <span class="n">sudo</span> <span class="n">boss</span>
+</pre></div>
+</div>
+<p>Stay on in the same session as root for the next step</p>
+</div>
+<div class="section" id="setup-firewall-ufw">
+<h3>2. Setup firewall (UFW)<a class="headerlink" href="#setup-firewall-ufw" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># allow ufw to let ssh access</span>
+<span class="n">ufw</span> <span class="n">allow</span> <span class="n">OpenSSH</span>
+
+<span class="c1"># enable ufw</span>
+<span class="n">ufw</span> <span class="n">enable</span>
+</pre></div>
+</div>
+<p><strong>NOTE</strong>: it is very important to allow OpenSSH while in the first login terminal and BEFORE enabling firewall. Otherwise, if openssh is not enabled, ufw is enabled and then you log-out - you may not be able to login again !</p>
+<p>Finally - exit the session and re-login as boss</p>
+<p>Source: <a class="reference external" href="https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-20-04">https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-20-04</a></p>
+</div>
+<div class="section" id="enable-passwordless-access-to-vps">
+<h3>3. Enable passwordless access to VPS.<a class="headerlink" href="#enable-passwordless-access-to-vps" title="Permalink to this headline">¶</a></h3>
+<p>On local machine</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># If ssh keys are not preset (xxx.pub files in ~/.ssh), generate ssh keys first using</span>
+<span class="n">ssh</span><span class="o">-</span><span class="n">keygen</span> <span class="o">-</span><span class="n">t</span> <span class="n">ed25519</span>
+
+<span class="c1"># Copy ssh key to VPS</span>
+<span class="n">ssh</span><span class="o">-</span><span class="n">copy</span><span class="o">-</span><span class="nb">id</span> <span class="o">-</span><span class="n">i</span> <span class="o">~/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">id_ed25519</span><span class="o">.</span><span class="n">pub</span> <span class="n">boss</span><span class="nd">@ipaddress</span>
+
+<span class="c1"># setup a simple command to login to VPS</span>
+<span class="n">edit</span> <span class="o">~/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">config</span> <span class="n">to</span> <span class="n">add</span>
+
+<span class="n">Host</span> <span class="n">myVPS</span>
+ <span class="n">HostName</span> <span class="n">ipaddress</span>
+ <span class="n">User</span> <span class="n">boss</span>
+ <span class="n">IdentityFile</span> <span class="o">~/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">id_ed25519</span>
+
+<span class="n">With</span> <span class="n">the</span> <span class="n">above</span> <span class="n">addition</span><span class="p">,</span> <span class="n">to</span> <span class="n">login</span> <span class="n">to</span> <span class="n">VPS</span><span class="p">,</span> <span class="n">you</span> <span class="n">simply</span> <span class="n">have</span> <span class="n">to</span> <span class="nb">type</span> <span class="n">ssh</span> <span class="n">myVPS</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">terminal</span>
+
+</pre></div>
+</div>
+<p>source: <a class="reference external" href="https://user.cscs.ch/access/auth/#generating-ssh-keys">https://user.cscs.ch/access/auth/#generating-ssh-keys</a></p>
+</div>
+<div class="section" id="installing-nginx-for-proxy-on-vps">
+<h3>4. installing nginx for proxy on VPS<a class="headerlink" href="#installing-nginx-for-proxy-on-vps" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">update</span>
+<span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">nginx</span>
+
+<span class="c1"># adjust ufw to allow for nginx</span>
+<span class="n">sudo</span> <span class="n">ufw</span> <span class="n">allow</span> <span class="s1">&#39;Nginx Full&#39;</span>
+
+<span class="n">this</span> <span class="n">command</span> <span class="n">sets</span> <span class="n">up</span> <span class="n">both</span> <span class="n">HTTP</span> <span class="ow">and</span> <span class="n">HTTPS</span> <span class="n">access</span> <span class="n">to</span> <span class="n">ngnix</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="setup-a-static-page-as-test">
+<h3>5. setup a static page as test.<a class="headerlink" href="#setup-a-static-page-as-test" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># creating a folder in home as web</span>
+<span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">~/</span><span class="n">web</span><span class="o">/</span><span class="n">main</span>
+<span class="n">cd</span> <span class="o">~/</span><span class="n">web</span><span class="o">/</span><span class="n">main</span>
+<span class="n">echo</span> <span class="s2">&quot;Hello World @ Home Page&quot;</span> <span class="o">&gt;&gt;</span> <span class="n">index</span><span class="o">.</span><span class="n">html</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># stop nginx for the time being
+sudo systemctl stop nginx
+# go to nginx folder
+cd /etc/nginx
+# add a file for website homepage
+sudo vim ./site-available/solarsherpa.xyz
+# in the file solarsherpa.xyz add
+server{
+
+       server_name solarsherpa.xyz www.solarsherpa.xyz;
+
+       root /home/boss/web/main/;
+       index index.html index.htm;
+
+       location / {
+                try_files $uri $uri/ =400;
+       }
+
+}
+# create a soft link of this file in the folder site-enabled
+cd ./sites-enabled # note that you are /etc/nginx
+sudo ln -sf ../sites-available/solarsherpa.xyz .
+cd ..
+# modify file ./ngnix.conf
+uncomment line: server_names_hash_bucket_size 64
+
+# check if everything is ok
+sudo nginx -t
+
+# start nginx again
+sudo systemctl start nginx
+</pre></div>
+</div>
+<p>At this point, if you go to solarsherpa.xyz on your browser, you should see Hello World &#64; Home Page !</p>
+</div>
+<div class="section" id="add-ssl-certificates-using-certbot">
+<h3>0. add SSL certificates using Certbot<a class="headerlink" href="#add-ssl-certificates-using-certbot" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># install certbot and it&#39;s extension for nginx</span>
+
+<span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">certbot</span> <span class="n">python3</span><span class="o">-</span><span class="n">certbot</span><span class="o">-</span><span class="n">nginx</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># obtain SSL certificates for our existing static homepage</span>
+<span class="n">sudo</span> <span class="n">certbot</span> <span class="o">--</span><span class="n">nginx</span> <span class="o">-</span><span class="n">d</span> <span class="n">solarsherpa</span><span class="o">.</span><span class="n">xyz</span> <span class="o">-</span><span class="n">d</span> <span class="n">www</span><span class="o">.</span><span class="n">solarsherpa</span><span class="o">.</span><span class="n">xyz</span>
+
+<span class="c1"># 1. you will be asked for your email address</span>
+<span class="c1"># 2. you will be asked to accept terms and conditions (YES)</span>
+<span class="c1"># 3. you will be asked to share your email address with (No)</span>
+<span class="c1"># 4. if everything goes properly, you will be asked whether you want to redirect all http traffic to your page to https (yes -&gt; select option 2)</span>
+
+</pre></div>
+</div>
+<p>That is it ! You are done - the homepage solarsherpa.xyz and www.solarsherpa.xyz are secure !</p>
+</div>
+</div>
+<div class="section" id="setting-up-docker-and-docker-compose-on-vps">
+<h2>Setting up docker and docker compose on VPS<a class="headerlink" href="#setting-up-docker-and-docker-compose-on-vps" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># allow APT to use HTTPS for access -
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+
+# Add GPG key for official docker repos
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+# add Docker repo to APT sources
+sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable&quot;
+
+# check if APT sources are correcty
+apt-cache policy docker-ce
+
+# install docker-ce (docker community edition)
+sudo apt install docker-ce
+
+# make sure that user (in our case: boss) has admin rights for docker (otherwise, you can only use docker as sudo docker xyz - can get very annoying after a while)
+sudo usermod -aG docker ${USER}
+su - ${USER}
+
+# add docker-compose
+mkdir -p ~/.docker/cli-plugins
+curl -SL https://github.com/docker/compose/releases/download/v2.4.1/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
+chmod +x ~/.docker/cli-plugins/docker-compose
+
+</pre></div>
+</div>
+<p><strong>NOTE</strong>: in the final command above - update the version (v2.4.1) according to latest release on the github page of docker/compose</p>
+</div>
+<div class="section" id="install-app-1-bookstack">
+<h2>Install App #1: Bookstack<a class="headerlink" href="#install-app-1-bookstack" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># first create a file in sites-available from template_dockerapp.xyz</span>
+<span class="n">cp</span> <span class="n">template_dockerapp</span><span class="o">.</span><span class="n">xyz</span> <span class="n">wiki</span><span class="o">.</span><span class="n">solarsherpa</span><span class="o">.</span><span class="n">xyz</span>
+<span class="n">vim</span> <span class="n">wiki</span><span class="o">.</span><span class="n">solarsherpa</span><span class="o">.</span><span class="n">xyz</span>
+<span class="n">edit</span> <span class="n">the</span> <span class="n">two</span> <span class="n">locations</span> <span class="n">to</span> <span class="n">edit</span> <span class="p">:</span> <span class="n">server_name</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">port</span> <span class="n">number</span>
+</pre></div>
+</div>
+<p>choose a port number : we choose 8341.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># link wiki.solarsherpa.xyz in sites-available to sites-enables</span>
+<span class="n">sudo</span> <span class="n">ln</span> <span class="o">-</span><span class="n">sf</span> <span class="o">../</span><span class="n">sites</span><span class="o">-</span><span class="n">available</span><span class="o">/</span><span class="n">wiki</span><span class="o">.</span><span class="n">solarsherpa</span><span class="o">.</span><span class="n">xyz</span> <span class="o">.</span>
+
+<span class="c1"># restart nginx</span>
+<span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">restart</span> <span class="n">nginx</span>
+
+<span class="c1"># enable https on wiki.solarsherpa.xyz</span>
+<span class="n">sudo</span> <span class="n">certbot</span> <span class="o">--</span><span class="n">nginx</span> <span class="o">-</span><span class="n">d</span> <span class="n">wiki</span><span class="o">.</span><span class="n">solarsherpa</span><span class="o">.</span><span class="n">xyz</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># go to home</span>
+<span class="n">cd</span> <span class="o">~</span>
+<span class="c1"># create containers</span>
+<span class="n">mkdir</span> <span class="n">containers</span>
+<span class="n">cd</span> <span class="n">containers</span>
+<span class="c1"># make dir for bookstack</span>
+<span class="n">mkdir</span> <span class="n">bookstack</span>
+<span class="n">cd</span> <span class="n">bookstack</span>
+<span class="c1"># make local folders for persistent data for volumes within the app</span>
+<span class="n">mkdir</span> <span class="n">app_data</span>
+<span class="n">mkdir</span> <span class="n">app_db</span>
+<span class="n">vim</span> <span class="n">docker</span><span class="o">-</span><span class="n">compose</span><span class="o">.</span><span class="n">yml</span>
+
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>In the docker-compose.yml, add :</p></li>
+</ul>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2&#39;</span><span class="w"></span>
+<span class="nt">services</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">bookstack</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lscr.io/linuxserver/bookstack</span><span class="w"></span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bookstack</span><span class="w"></span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PUID=1000</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PGID=1000</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">APP_URL=https://wiki.solarsherpa.xyz</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DB_HOST=bookstack_db</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DB_USER=bookstack_hero</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DB_PASS=&lt;db_pass_1&gt;</span><span class="w"> </span><span class="c1"># read note below</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DB_DATABASE=bookstackapp</span><span class="w"></span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./app_data:/config</span><span class="w"></span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">127.0.0.1:8341:80</span><span class="w"></span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span><span class="w"></span>
+<span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bookstack_db</span><span class="w"></span>
+<span class="w">  </span><span class="nt">bookstack_db</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lscr.io/linuxserver/mariadb</span><span class="w"></span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bookstack_db</span><span class="w"></span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PUID=1000</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PGID=1000</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MYSQL_ROOT_PASSWORD=&lt;db_pass_2&gt;</span><span class="w"> </span><span class="c1"># read note below</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TZ=Europe/Paris</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MYSQL_DATABASE=bookstackapp</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MYSQL_USER=bookstack_hero</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MYSQL_PASSWORD=&lt;db_pass_1&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./app_db:/config</span><span class="w"></span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span><span class="w"></span>
+</pre></div>
+</div>
+<p><strong>NOTE</strong> : create the long password strings for db_pass_1 and db_pass_2 using :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">head</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">urandom</span> <span class="o">|</span> <span class="n">tr</span> <span class="o">-</span><span class="n">dc</span> <span class="n">A</span><span class="o">-</span><span class="n">Za</span><span class="o">-</span><span class="n">z0</span><span class="o">-</span><span class="mi">9</span> <span class="o">|</span> <span class="n">head</span> <span class="o">-</span><span class="n">c</span> <span class="mi">32</span> <span class="p">;</span> <span class="n">echo</span> <span class="s1">&#39;&#39;</span>
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-app-2-openproject">
+<h2>Install App #2: Openproject<a class="headerlink" href="#install-app-2-openproject" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>As always, we first begin by setting up the subdomain adrress with nginx</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">sites</span><span class="o">-</span><span class="n">available</span>
+<span class="n">sudo</span> <span class="n">cp</span> <span class="n">template_dockerapp</span><span class="o">.</span><span class="n">xyz</span> <span class="n">pm</span><span class="o">.</span><span class="n">solarsherpa</span><span class="o">.</span><span class="n">xyz</span>
+<span class="n">vim</span> <span class="n">pm</span><span class="o">.</span><span class="n">solarsherpa</span><span class="o">.</span><span class="n">xyz</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>in the file pm.solarsherpa.xyz, add</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>server{
+
+       server_name pm.solarsherpa.xyz;
+
+       location / {
+          proxy_pass http://127.0.0.1:8342;
+          proxy_set_header   X-Forwarded-For $remote_addr;
+          proxy_set_header   Host $http_host;
+       }
+}
+</pre></div>
+</div>
+<p><strong>NOTE</strong>: note the port number . Also, the proxy_set_header commands come from openproject’s documentation.</p>
+<ul class="simple">
+<li><p>Add link to the pm.solarsherpa.xyz file to sites-enabled folder as before.</p></li>
+<li><p>get ssl certificate:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">certbot</span> <span class="o">--</span><span class="n">nginx</span> <span class="o">-</span><span class="n">d</span> <span class="n">pm</span><span class="o">.</span><span class="n">solarsherpa</span><span class="o">.</span><span class="n">xyz</span>
+</pre></div>
+</div>
+<p><strong>NGINX is setup !</strong></p>
+<ul class="simple">
+<li><p>make folder for openproject in the containers folder
+cd ~/containers
+mkdir openproject
+cd openproject
+mkdir assets
+mkdir pgdata</p></li>
+<li><p>generate secret key</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">head</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">urandom</span> <span class="o">|</span> <span class="n">tr</span> <span class="o">-</span><span class="n">dc</span> <span class="n">A</span><span class="o">-</span><span class="n">Za</span><span class="o">-</span><span class="n">z0</span><span class="o">-</span><span class="mi">9</span> <span class="o">|</span> <span class="n">head</span> <span class="o">-</span><span class="n">c</span> <span class="mi">32</span> <span class="p">;</span> <span class="n">echo</span> <span class="s1">&#39;&#39;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>run command:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">d</span> <span class="o">-</span><span class="n">p</span> <span class="mf">127.0.0.1</span><span class="p">:</span><span class="mi">8342</span><span class="p">:</span><span class="mi">80</span> <span class="o">--</span><span class="n">name</span> <span class="n">openproject</span> <span class="o">-</span><span class="n">e</span> <span class="n">SECRET_KEY_BASE</span><span class="o">=</span><span class="n">output_of_secret_key_above</span> <span class="o">-</span><span class="n">e</span> <span class="n">SERVER_HOSTNAME</span><span class="o">=</span><span class="n">pm</span><span class="o">.</span><span class="n">solarsherpa</span><span class="o">.</span><span class="n">xyz</span> <span class="o">-</span><span class="n">v</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">boss</span><span class="o">/</span><span class="n">containers</span><span class="o">/</span><span class="n">openproject</span><span class="o">/</span><span class="n">pgdata</span><span class="p">:</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">openproject</span><span class="o">/</span><span class="n">pgdata</span> <span class="o">-</span><span class="n">v</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">boss</span><span class="o">/</span><span class="n">containers</span><span class="o">/</span><span class="n">openproject</span><span class="o">/</span><span class="n">assets</span><span class="p">:</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">openproject</span><span class="o">/</span><span class="n">assets</span> <span class="n">openproject</span><span class="o">/</span><span class="n">community</span><span class="p">:</span><span class="mi">12</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="12_vscode_on_cscs.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Using vscode on CSCS for MCH</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="HW_vscode_anki.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">A hello world example for using vscode with anki</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Varun Sharma<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="useful bash command line snippets" href="07_allabout_bashcli.html" />
-    <link rel="prev" title="Installing docker, docker-compose, nginx-proxy-manager and portainer" href="05_setting_up_d-npm-port.html" />
+    <link rel="prev" title="How to use Docker" href="06_allabout_docker.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -156,6 +156,11 @@ const thebe_selector_output = ".output, .cell_output"
      Setting up d-npm-port
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_allabout_docker.html">
+     Allabout docker
+    </a>
+   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Cosmo
@@ -164,6 +169,46 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="07_allabout_bashcli.html">
      Allabout bashcli
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="08_initial_vps_setup.html">
+     Initial vps setup
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="09_settingup_nginx.html">
+     Settingup nginx
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="10_anki.html">
+     Anki
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="11_modifying_bash_history.html">
+     Modifying bash history
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="12_vscode_on_cscs.html">
+     Vscode on cscs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="default_setup.html">
+     Default setup
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="HW_vscode_anki.html">
+     Hw vscode anki
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="random_ubuntu_stuff.html">
+     Random ubuntu stuff
     </a>
    </li>
   </ul>
@@ -311,6 +356,26 @@ const thebe_selector_output = ".output, .cell_output"
    some important subroutines
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#to-add-a-new-field">
+   to add a new field
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compiling-cosmo">
+   COMPILING COSMO
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#running-ddt-for-cosmo">
+   RUNNING DDT FOR COSMO
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tips-on-ddt">
+   Tips on DDT
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -344,6 +409,26 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#some-important-subroutines">
    some important subroutines
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#to-add-a-new-field">
+   to add a new field
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compiling-cosmo">
+   COMPILING COSMO
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#running-ddt-for-cosmo">
+   RUNNING DDT FOR COSMO
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tips-on-ddt">
+   Tips on DDT
   </a>
  </li>
 </ul>
@@ -389,6 +474,102 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>turbtran</p></li>
 </ul>
 </div>
+<div class="section" id="to-add-a-new-field">
+<h2>to add a new field<a class="headerlink" href="#to-add-a-new-field" title="Permalink to this headline">¶</a></h2>
+<ul class="contains-task-list simple">
+<li><p>I chose rain_gsp as my template variable. rain_gsp variable is a 2d diagnostic variable. I am copying exactly the same implementation but for 4 new variables</p></li>
+<li><p>variables scratch_a, scratch_b, scratch_c, scratch_d</p></li>
+<li><p>rain_gsp is used in ( i found it using <code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">-i</span> <span class="pre">-r</span> <span class="pre">'rain_gsp'</span> <span class="pre">.</span> <span class="pre">|</span> <span class="pre">cut</span> <span class="pre">-d':'</span> <span class="pre">-f1</span> <span class="pre">|</span> <span class="pre">sort</span> <span class="pre">|</span> <span class="pre">uniq</span></code>) :</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> ./acc_global_data.f90</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> ./data_fields.f90</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> ./dfi_initialization.f90 ( not needed for us)</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> ./near_surface.f90 ( not needed for us )</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> ./organize_data.f90 ( only for predefined i/o - not needed for us)</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> ./src_allocation.f90</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> ./src_gridpoints.f90 (not for us)</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> ./src_meanvalues.f90 (not needed for us)</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> ./src_output.f90 (surprisingly, no snowpolino variables )</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> ./src_setup_vartab.f90</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> ./src_sing_local.f90 ( not needed for us)</p></li>
+<li><p>On second though - I changed my mind and decided to follow sfhl_s as my template variable - why ? because rain_gsp does not exist as blocks and at the interface level (sfc_interface.f90), everything is like blocks.</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> ./acc_global_data.f90</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> ./data_block_fields.f90</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> ./data_fields.f90</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> ./organize_data.f90 ( not needed only for initial or restart etc )</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> ./sfc_interface.f90</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> ./sfc_tile_approach.f90</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> ./src_allocation.f90</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> ./src_block_fields_org.f90</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> ./src_input.f90</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> ./src_setup_vartab.f90 ( not sure if I have to do this)</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> ./src_slow_tendencies_rk.f90 ( not needed )</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> ./turb_diffusion.f90 ( not needed )</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> ./turb_interface.f90 ( not needed )</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> ./turb_transfer.f90 ( not needed )</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> ./turb_vertdiff.f90( not needed )</p></li>
+</ul>
+</div>
+<div class="section" id="compiling-cosmo">
+<h2>COMPILING COSMO<a class="headerlink" href="#compiling-cosmo" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">load</span> <span class="n">python</span><span class="o">/</span><span class="mf">3.7.4</span>
+<span class="o">.</span> <span class="o">/</span><span class="n">project</span><span class="o">/</span><span class="n">g110</span><span class="o">/</span><span class="n">spack</span><span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">tsa</span><span class="o">/</span><span class="n">spack</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">spack</span><span class="o">/</span><span class="n">setup</span><span class="o">-</span><span class="n">env</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>COSMO_SPEC=&quot;cosmo@dev-build%gcc real_type=double cosmo_target=cpu ~cppdycore&quot;
+spack devbuildcosmo $COSMO_SPEC
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># get and source env
+spack build-env --dump cosmo.env $COSMO_SPEC -- #!one space after --
+</pre></div>
+</div>
+<p>In the sbatch script</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="n">cosmo</span><span class="o">.</span><span class="n">env</span>
+<span class="n">export</span> <span class="n">REAL_TYPE</span><span class="o">=</span><span class="n">DOUBLE</span> <span class="c1">#FLOAT for float</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="running-ddt-for-cosmo">
+<h2>RUNNING DDT FOR COSMO<a class="headerlink" href="#running-ddt-for-cosmo" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>get an allocation</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">salloc</span> <span class="o">--</span><span class="n">ntasks</span><span class="o">=</span><span class="mi">96</span> <span class="o">--</span><span class="n">partition</span><span class="o">=</span><span class="n">postproc</span> <span class="o">--</span><span class="n">time</span><span class="o">=</span><span class="mi">00</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">00</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>do things similar to sbatch script</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">ulimit</span> <span class="o">-</span><span class="n">s</span> <span class="n">unlimited</span>
+ <span class="n">ulimit</span> <span class="o">-</span><span class="n">c</span> <span class="n">unlimited</span>
+ <span class="n">source</span> <span class="o">./</span><span class="n">cosmo_cpu_sp</span><span class="o">.</span><span class="n">env</span>
+ <span class="n">export</span> <span class="n">REAL_TYPE</span><span class="o">=</span><span class="n">FLOAT</span>
+<span class="n">rm</span> <span class="n">YU</span><span class="o">*</span> <span class="n">M</span><span class="o">*</span>
+
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>load and launch ddt</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">load</span> <span class="n">ddt</span>
+<span class="n">ddt</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Within DDT, make sure to</p></li>
+</ol>
+<ul class="simple">
+<li><p>select MPI , and select SLURM generic</p></li>
+</ul>
+<p>That is it !</p>
+</div>
+<div class="section" id="tips-on-ddt">
+<h2>Tips on DDT<a class="headerlink" href="#tips-on-ddt" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>to step through the code, use Step over, step within and step out.</p></li>
+<li><p>basically, let the code run a bit, then step out … keep stepping out untill you reach a reasonable level in the code heirarcy. At that point, keep stepping over.</p></li>
+</ul>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -416,11 +597,11 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="05_setting_up_d-npm-port.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="06_allabout_docker.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Installing docker, docker-compose, nginx-proxy-manager and portainer</p>
+            <p class="prev-next-title">How to use Docker</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="07_allabout_bashcli.html" title="next page">

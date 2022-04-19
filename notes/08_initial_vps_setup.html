@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Installing docker, docker-compose, nginx-proxy-manager and portainer &#8212; Notes, thoughts and howto&#39;s</title>
+    <title>First steps upon getting a VPS &#8212; Notes, thoughts and howto&#39;s</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,8 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="How to use Docker" href="06_allabout_docker.html" />
-    <link rel="prev" title="VIM: tips and tricks" href="04_allabout_VIM.html" />
+    <link rel="next" title="Setting up ngnix on a fresh VPS" href="09_settingup_nginx.html" />
+    <link rel="prev" title="useful bash command line snippets" href="07_allabout_bashcli.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -151,8 +151,8 @@ const thebe_selector_output = ".output, .cell_output"
      Allabout vim
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_setting_up_d-npm-port.html">
      Setting up d-npm-port
     </a>
    </li>
@@ -171,8 +171,8 @@ const thebe_selector_output = ".output, .cell_output"
      Allabout bashcli
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="08_initial_vps_setup.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Initial vps setup
     </a>
    </li>
@@ -298,7 +298,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/notes/05_setting_up_d-npm-port.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/notes/08_initial_vps_setup.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -342,48 +342,39 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#steps-taken">
-   Steps taken
+  <a class="reference internal nav-link" href="#logging-into-the-vps">
+   Logging into the VPS
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#update-system">
-     update system
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#open-http-ports">
-     open http ports
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#setting-up-nginx-proxy-manager-npm">
-     setting up nginx-proxy-manager (npm)
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#download-the-docker-compose-yml">
-       download the docker-compose.yml
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#spin-up-nginx-proxy-manager">
-       spin up nginx-proxy-manager
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#setup-portainer">
-     setup portainer
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#setting-up-npm-and-portainer-on-web-gui-directly">
-     setting up npm and portainer on web gui directly
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-a-new-user">
+   Create a new user
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setting-up-a-basic-firewall">
+   Setting up a basic firewall
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup-password-less-access">
+   setup password-less access
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#add-the-vps-to-the-ssh-config">
+   add the VPS to the ~/.ssh/config
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#finally-update">
+   Finally - update
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#some-more-links">
+   some more links
+  </a>
  </li>
 </ul>
 
@@ -395,7 +386,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Installing docker, docker-compose, nginx-proxy-manager and portainer</h1>
+                <h1>First steps upon getting a VPS</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -406,48 +397,39 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#steps-taken">
-   Steps taken
+  <a class="reference internal nav-link" href="#logging-into-the-vps">
+   Logging into the VPS
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#update-system">
-     update system
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#open-http-ports">
-     open http ports
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#setting-up-nginx-proxy-manager-npm">
-     setting up nginx-proxy-manager (npm)
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#download-the-docker-compose-yml">
-       download the docker-compose.yml
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#spin-up-nginx-proxy-manager">
-       spin up nginx-proxy-manager
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#setup-portainer">
-     setup portainer
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#setting-up-npm-and-portainer-on-web-gui-directly">
-     setting up npm and portainer on web gui directly
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-a-new-user">
+   Create a new user
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setting-up-a-basic-firewall">
+   Setting up a basic firewall
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup-password-less-access">
+   setup password-less access
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#add-the-vps-to-the-ssh-config">
+   add the VPS to the ~/.ssh/config
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#finally-update">
+   Finally - update
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#some-more-links">
+   some more links
+  </a>
  </li>
 </ul>
 
@@ -458,104 +440,80 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="installing-docker-docker-compose-nginx-proxy-manager-and-portainer">
-<h1>Installing docker, docker-compose, nginx-proxy-manager and portainer<a class="headerlink" href="#installing-docker-docker-compose-nginx-proxy-manager-and-portainer" title="Permalink to this headline">¶</a></h1>
-<p>Source: <a class="reference external" href="https://www.youtube.com/watch?v=TdEKVPWbC58&amp;ab_channel=AwesomeOpenSource">awesome open source</a></p>
-<p>Status: Reset - not sure will follow this method.</p>
-<div class="section" id="steps-taken">
-<h2>Steps taken<a class="headerlink" href="#steps-taken" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
-<li></li>
-</ol>
-<div class="section" id="update-system">
-<h3>update system<a class="headerlink" href="#update-system" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">update</span> <span class="o">-</span><span class="n">y</span> <span class="o">&gt;</span> <span class="o">~/</span><span class="n">logs</span><span class="o">/</span><span class="n">docker</span><span class="o">-</span><span class="n">script</span><span class="o">-</span><span class="n">install</span><span class="o">.</span><span class="n">log</span>
-</pre></div>
-</div>
-<ol class="simple">
-<li></li>
-</ol>
-<div class="section" id="open-http-ports">
-<h3>open http ports<a class="headerlink" href="#open-http-ports" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">ufw</span> <span class="n">allow</span> <span class="n">http</span>
-</pre></div>
-</div>
-<p><em>note</em>: https was already opened earlier</p>
-<ol class="simple">
-<li></li>
-</ol>
-<div class="section" id="setting-up-nginx-proxy-manager-npm">
-<h3>setting up nginx-proxy-manager (npm)<a class="headerlink" href="#setting-up-nginx-proxy-manager-npm" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="download-the-docker-compose-yml">
-<h4>download the docker-compose.yml<a class="headerlink" href="#download-the-docker-compose-yml" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="n">docker</span><span class="o">/</span><span class="n">nginx</span><span class="o">-</span><span class="n">proxy</span><span class="o">-</span><span class="n">manager</span>
-
-<span class="n">cd</span> <span class="n">docker</span><span class="o">/</span><span class="n">nginx</span><span class="o">-</span><span class="n">proxy</span><span class="o">-</span><span class="n">manager</span>
-
-<span class="n">curl</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">gitlab</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">bmcgonag</span><span class="o">/</span><span class="n">docker_installs</span><span class="o">/-/</span><span class="n">raw</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">docker_compose</span><span class="o">.</span><span class="n">nginx_proxy_manager</span><span class="o">.</span><span class="n">yml</span> <span class="o">-</span><span class="n">o</span> <span class="n">docker</span><span class="o">-</span><span class="n">compose</span><span class="o">.</span><span class="n">yml</span>
-</pre></div>
-</div>
-<p><em>note</em>: save docker-compose.yml somewhere</p>
-</div>
-<div class="section" id="spin-up-nginx-proxy-manager">
-<h4>spin up nginx-proxy-manager<a class="headerlink" href="#spin-up-nginx-proxy-manager" title="Permalink to this headline">¶</a></h4>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">up</span> <span class="o">-</span><span class="n">d</span>
-</pre></div>
-</div>
-<p><em>the -d launches the docker container in the background, thereby freeing up the terminal</em></p>
-<ol class="simple">
-<li></li>
-</ol>
+  <div class="tex2jax_ignore mathjax_ignore section" id="first-steps-upon-getting-a-vps">
+<h1>First steps upon getting a VPS<a class="headerlink" href="#first-steps-upon-getting-a-vps" title="Permalink to this headline">¶</a></h1>
+<p>Situation: you have just bought a virtual private server (VPS).</p>
 <ul class="simple">
-<li><p>create docker volume for portainer</p></li>
+<li><p>You chose ubuntu xx.yy as the OS</p></li>
+<li><p>you have been given a dedicated IPv4 ip address (and perhaps even a IPv6 ip address) 109.205.xxx.yy</p></li>
+<li><p>you have the root account named ‘root’</p></li>
+<li><p>and you have the password for it.</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">docker</span> <span class="n">volume</span> <span class="n">create</span> <span class="n">portainer_data</span>
+<div class="section" id="logging-into-the-vps">
+<h2>Logging into the VPS<a class="headerlink" href="#logging-into-the-vps" title="Permalink to this headline">¶</a></h2>
+<p>from ==local== computer, you can use good old SSH to log into the VPS.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="n">root</span><span class="o">@</span><span class="mf">109.205</span><span class="o">.</span><span class="n">xxx</span><span class="o">.</span><span class="n">yy</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="create-a-new-user">
+<h2>Create a new user<a class="headerlink" href="#create-a-new-user" title="Permalink to this headline">¶</a></h2>
+<p>It is advisable to create a new user and <strong>not use root</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">adduser</span> <span class="n">johndoe</span>
+</pre></div>
+</div>
+<p>However, it is still good to have <em>admin</em> privileges.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usermod</span> <span class="o">-</span><span class="n">aG</span> <span class="n">sudo</span> <span class="n">johndoe</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="setting-up-a-basic-firewall">
+<h2>Setting up a basic firewall<a class="headerlink" href="#setting-up-a-basic-firewall" title="Permalink to this headline">¶</a></h2>
+<p>On Ubuntu, a firewall software <strong>UFW</strong> comes pre-installed. UFW has a set of pre-determined applications that the firewall allows.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ufw</span> <span class="n">app</span> <span class="nb">list</span>
+</pre></div>
+</div>
+<p>Typically, only <strong>OpenSSH</strong> is allowed. OpenSSH is the software that allows for SSH connections.</p>
+<p>Unable UFW</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ufw</span> <span class="n">enable</span>
+</pre></div>
+</div>
+<p>Exit the VPS and re-login using the new user.</p>
+</div>
+<div class="section" id="setup-password-less-access">
+<h2>setup password-less access<a class="headerlink" href="#setup-password-less-access" title="Permalink to this headline">¶</a></h2>
+<p>On ==local== computer, generate ssh keys (modern key types are ed25519)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span><span class="o">-</span><span class="n">keygen</span> <span class="o">-</span><span class="n">t</span> <span class="n">ed25519</span>
+</pre></div>
+</div>
+<p>now transfer the publiclly generated key (id_ed25519.pub) to the VPS.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span><span class="o">-</span><span class="n">copy</span><span class="o">-</span><span class="nb">id</span> <span class="o">-</span><span class="n">i</span> <span class="o">~/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">id_ed25519</span><span class="o">.</span><span class="n">pub</span> <span class="n">johndoe</span><span class="o">@</span><span class="mf">109.205</span><span class="o">.</span><span class="n">xxx</span><span class="o">.</span><span class="n">yy</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="add-the-vps-to-the-ssh-config">
+<h2>add the VPS to the ~/.ssh/config<a class="headerlink" href="#add-the-vps-to-the-ssh-config" title="Permalink to this headline">¶</a></h2>
+<p>This allows one to just type <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">vpsname</span> </code> in the terminal and directly get into the VPS.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">Host</span> <span class="n">vpsname</span>
+ <span class="n">HostName</span> <span class="mf">109.205</span><span class="o">.</span><span class="n">xxx</span><span class="o">.</span><span class="n">yy</span>
+ <span class="n">User</span> <span class="n">boss</span>
+ <span class="n">IdentityFile</span> <span class="o">~/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">id_ed25519</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="finally-update">
+<h2>Finally - update<a class="headerlink" href="#finally-update" title="Permalink to this headline">¶</a></h2>
+<p>Log back into VPS and</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">update</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="some-more-links">
+<h2>some more links<a class="headerlink" href="#some-more-links" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>install portainer-ce</p></li>
+<li><p>Basic setup from <a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-20-04">DigitalOcean</a></p></li>
+<li><p>About UFW and firewalls from <a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-18-04">DO-Firewalls</a></p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">d</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8000</span><span class="p">:</span><span class="mi">8000</span> <span class="o">-</span><span class="n">p</span> <span class="mi">9000</span><span class="p">:</span><span class="mi">9000</span> <span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="n">portainer</span> <span class="o">--</span><span class="n">restart</span><span class="o">=</span><span class="n">always</span> <span class="o">-</span><span class="n">v</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">docker</span><span class="o">.</span><span class="n">sock</span><span class="p">:</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">docker</span><span class="o">.</span><span class="n">sock</span> <span class="o">-</span><span class="n">v</span> <span class="n">portainer_data</span><span class="p">:</span><span class="o">/</span><span class="n">data</span> <span class="n">portainer</span><span class="o">/</span><span class="n">portainer</span><span class="o">-</span><span class="n">ce</span>
-</pre></div>
-</div>
-<p>WHOOPS made a mistake - installed Portainer-agent instead of Portainer-CE</p>
-<p>[got help from] (<a class="reference external" href="https://linuxize.com/post/how-to-remove-docker-images-containers-volumes-and-networks/">https://linuxize.com/post/how-to-remove-docker-images-containers-volumes-and-networks/</a>)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># got the container ID from docker ps and stopped it first</span>
-<span class="n">docker</span> <span class="n">stop</span> <span class="mi">3988</span><span class="n">ec92833d</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># listing all docker containers</span>
-<span class="n">docker</span> <span class="n">container</span> <span class="n">ls</span> <span class="o">-</span><span class="n">a</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># removing containers not working currently</span>
-<span class="n">docker</span> <span class="n">container</span> <span class="n">prune</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># removing networks / volumes / images and containers</span>
-<span class="n">docker</span> <span class="n">system</span> <span class="n">prune</span> <span class="o">-</span><span class="n">a</span>
-</pre></div>
-</div>
-<p><em>note: this also removed some older stuff that I had installed but forgotten about</em></p>
-<ol class="simple">
-<li></li>
-</ol>
-<p>Make sure that the relevant ports are open through the firewall.</p>
-<ul class="simple">
-<li><p>npm: port 81</p></li>
-<li><p>portainer: port 9000</p></li>
-</ul>
-<p>ofcourse - make sure that at this point, port 80 (http) and port 443 (https) are also open.</p>
-</div>
-</div>
-<div class="section" id="setup-portainer">
-<h3>setup portainer<a class="headerlink" href="#setup-portainer" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="setting-up-npm-and-portainer-on-web-gui-directly">
-<h3>setting up npm and portainer on web gui directly<a class="headerlink" href="#setting-up-npm-and-portainer-on-web-gui-directly" title="Permalink to this headline">¶</a></h3>
-</div>
 </div>
 </div>
 
@@ -584,17 +542,17 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="04_allabout_VIM.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="07_allabout_bashcli.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">VIM: tips and tricks</p>
+            <p class="prev-next-title">useful bash command line snippets</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="06_allabout_docker.html" title="next page">
+    <a class='right-next' id="next-link" href="09_settingup_nginx.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">How to use Docker</p>
+        <p class="prev-next-title">Setting up ngnix on a fresh VPS</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
