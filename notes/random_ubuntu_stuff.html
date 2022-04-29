@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Creating zarr stores from a bunch of similar NETCDF files" href="../sandbox_zarr/README.html" />
+    <link rel="next" title="Setting up ANKI" href="setting_up_anki.html" />
     <link rel="prev" title="A hello world example for using vscode with anki" href="HW_vscode_anki.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -132,28 +132,8 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="01_initial_steps_for_www.html">
-     Initial steps for www
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_setting_up_nginx_docker.html">
-     Setting up nginx docker
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="03_allabout_ufw.html">
      Allabout ufw
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="04_allabout_VIM.html">
-     Allabout vim
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="05_setting_up_d-npm-port.html">
-     Setting up d-npm-port
     </a>
    </li>
    <li class="toctree-l2">
@@ -162,43 +142,28 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="06_cosmo.html">
-     Cosmo
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="07_allabout_bashcli.html">
-     Allabout bashcli
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="08_initial_vps_setup.html">
-     Initial vps setup
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="09_settingup_nginx.html">
-     Settingup nginx
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="10_anki.html">
-     Anki
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="11_modifying_bash_history.html">
-     Modifying bash history
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="12_vscode_on_cscs.html">
      Vscode on cscs
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="default_setup.html">
-     Default setup
+    <a class="reference internal" href="allabout_VIM.html">
+     Allabout vim
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="allbout_cosmo.html">
+     Allbout cosmo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="checking_read_write_speeds_ubuntu.html">
+     Checking read write speeds ubuntu
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="default_setup_vps.html">
+     Default setup vps
     </a>
    </li>
    <li class="toctree-l2">
@@ -211,6 +176,33 @@ const thebe_selector_output = ".output, .cell_output"
      Random ubuntu stuff
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="setting_up_anki.html">
+     Setting up anki
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="drafts/01_initial_steps_for_www.html">
+     Initial steps for www
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="drafts/05_setting_up_d-npm-port.html">
+       Setting up d-npm-port
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="drafts/08_initial_vps_setup.html">
+       Initial vps setup
+      </a>
+     </li>
+    </ul>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -222,8 +214,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../template-repo/README.html">
    Template-repo
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -242,8 +234,8 @@ const thebe_selector_output = ".output, .cell_output"
     <a class="reference internal" href="../template-repo/foo/README.html">
      Foo
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-    <label for="toctree-checkbox-4">
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -356,6 +348,21 @@ const thebe_selector_output = ".output, .cell_output"
    adding stuff to startup (GUI)
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#grep">
+   grep
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sudo-apt">
+   sudo apt
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#enhanching-bash-history-setup">
+   Enhanching bash history setup
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -384,6 +391,21 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#adding-stuff-to-startup-gui">
    adding stuff to startup (GUI)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#grep">
+   grep
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sudo-apt">
+   sudo apt
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#enhanching-bash-history-setup">
+   Enhanching bash history setup
   </a>
  </li>
 </ul>
@@ -416,6 +438,70 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>open startup application</p></li>
 <li><p>add just the command you want executed at startup ( the same command that you would type if you were running the app from thhe terminal )</p></li>
 </ul>
+</div>
+<div class="section" id="grep">
+<h2>grep<a class="headerlink" href="#grep" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>to return the word containing a search string (and not the entire line)</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">grep</span> <span class="o">-</span><span class="n">i</span> <span class="o">-</span><span class="n">r</span> <span class="o">-</span><span class="n">o</span> <span class="s1">&#39;\w*itype\w*&#39;</span> <span class="o">./</span><span class="n">sfc_terra</span><span class="o">.</span><span class="n">f90</span>
+</pre></div>
+</div>
+<p>returns all words with itype in it.</p>
+<ul class="simple">
+<li><p>return only unique values</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">grep</span> <span class="o">-</span><span class="n">i</span> <span class="o">-</span><span class="n">r</span> <span class="o">-</span><span class="n">o</span> <span class="s1">&#39;\w*itype\w*&#39;</span> <span class="o">./</span><span class="n">sfc_terra</span><span class="o">.</span><span class="n">f90</span> <span class="o">|</span> <span class="n">sort</span> <span class="o">|</span> <span class="n">uniq</span>
+</pre></div>
+</div>
+<p>returns only unique values from the match</p>
+</div>
+<div class="section" id="sudo-apt">
+<h2>sudo apt<a class="headerlink" href="#sudo-apt" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>to suppress output and assume yes to all imports</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="o">-</span><span class="n">yqq</span> <span class="n">instal</span> <span class="n">xxxyyyzzz</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="enhanching-bash-history-setup">
+<h2>Enhanching bash history setup<a class="headerlink" href="#enhanching-bash-history-setup" title="Permalink to this headline">¶</a></h2>
+<p>Source: <a class="reference external" href="https://www.thomaslaurenson.com/blog/2018-07-02/better-bash-history/">https://www.thomaslaurenson.com/blog/2018-07-02/better-bash-history/</a></p>
+<ol class="simple">
+<li><p>I added this to my /etc/bash.bashrc</p></li>
+<li><p>extended /etc/bash.bashrc is</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print the timestamp of each command</span>
+<span class="n">HISTTIMEFORMAT</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%F</span><span class="s1"> %T &#39;</span>
+
+<span class="c1"># Save 100000 lines of history in memory</span>
+<span class="n">HISTSIZE</span><span class="o">=</span><span class="mi">100000</span>
+<span class="c1"># Save 2,000,000 lines of history to disk (will have to grep ~/.bash_history for full listing)</span>
+<span class="n">HISTFILESIZE</span><span class="o">=</span><span class="mi">2000000</span>
+<span class="c1"># Do not store a duplicate of the last entered command</span>
+<span class="n">HISTCONTROL</span><span class="o">=</span><span class="n">ignoredups</span>
+<span class="c1"># Ignore more</span>
+<span class="n">HISTIGNORE</span><span class="o">=</span><span class="s1">&#39;ls:ll:ll -htr:clear:history&#39;</span>
+
+<span class="c1"># Configure BASH to append (rather than overwrite the history):</span>
+<span class="n">shopt</span> <span class="o">-</span><span class="n">s</span> <span class="n">histappend</span>
+
+<span class="c1"># Attempt to save all lines of a multiple-line command in the same entry</span>
+<span class="n">shopt</span> <span class="o">-</span><span class="n">s</span> <span class="n">cmdhist</span>
+
+<span class="c1"># save multi-line commands to the history with embedded newlines</span>
+<span class="n">shopt</span> <span class="o">-</span><span class="n">s</span> <span class="n">lithist</span>
+
+<span class="c1"># After each command, append to the history file and reread it</span>
+<span class="n">export</span> <span class="n">PROMPT_COMMAND</span><span class="o">=</span><span class="s2">&quot;${PROMPT_COMMAND:+$PROMPT_COMMAND$&quot;</span>\<span class="n">n</span><span class="s2">&quot;}history -a; history -c; history -r&quot;</span>
+
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>make sure you are using sudo vim …</p></li>
+<li><p>Added the same edits to .bashrc on mch/daint</p></li>
+</ol>
 </div>
 </div>
 
@@ -451,10 +537,10 @@ const thebe_selector_output = ".output, .cell_output"
             <p class="prev-next-title">A hello world example for using vscode with anki</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../sandbox_zarr/README.html" title="next page">
+    <a class='right-next' id="next-link" href="setting_up_anki.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Creating zarr stores from a bunch of similar NETCDF files</p>
+        <p class="prev-next-title">Setting up ANKI</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

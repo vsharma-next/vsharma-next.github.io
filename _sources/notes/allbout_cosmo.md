@@ -122,4 +122,4 @@ That is it !
 ## Tips on DDT
 
 - to step through the code, use Step over, step within and step out.
-- basically, let the code run a bit, then step out ... keep stepping out untill you reach a reasonable level in the code heirarcy. At that point, keep stepping over.
+- basically, let the code run a bit, then step out ... keep stepping out until you reach a reasonable level in the code heirarcy. At that point, keep stepping over.

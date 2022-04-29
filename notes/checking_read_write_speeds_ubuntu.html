@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Setting up ANKI &#8212; Notes, thoughts and howto&#39;s</title>
+    <title>How to check parallel i/o speeds and performance on ubuntu &#8212; Notes, thoughts and howto&#39;s</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,8 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Enhanching bash history setup" href="11_modifying_bash_history.html" />
-    <link rel="prev" title="Setting up ngnix on a fresh VPS" href="09_settingup_nginx.html" />
+    <link rel="next" title="Setting up fresh VPS with nginx reverse proxy and 2 demo apps" href="default_setup_vps.html" />
+    <link rel="prev" title="Understanding COSMO" href="allbout_cosmo.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -132,28 +132,8 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="01_initial_steps_for_www.html">
-     Initial steps for www
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_setting_up_nginx_docker.html">
-     Setting up nginx docker
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="03_allabout_ufw.html">
      Allabout ufw
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="04_allabout_VIM.html">
-     Allabout vim
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="05_setting_up_d-npm-port.html">
-     Setting up d-npm-port
     </a>
    </li>
    <li class="toctree-l2">
@@ -162,43 +142,28 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="06_cosmo.html">
-     Cosmo
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="07_allabout_bashcli.html">
-     Allabout bashcli
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="08_initial_vps_setup.html">
-     Initial vps setup
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="09_settingup_nginx.html">
-     Settingup nginx
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Anki
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="11_modifying_bash_history.html">
-     Modifying bash history
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="12_vscode_on_cscs.html">
      Vscode on cscs
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="default_setup.html">
-     Default setup
+    <a class="reference internal" href="allabout_VIM.html">
+     Allabout vim
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="allbout_cosmo.html">
+     Allbout cosmo
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Checking read write speeds ubuntu
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="default_setup_vps.html">
+     Default setup vps
     </a>
    </li>
    <li class="toctree-l2">
@@ -211,6 +176,33 @@ const thebe_selector_output = ".output, .cell_output"
      Random ubuntu stuff
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="setting_up_anki.html">
+     Setting up anki
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="drafts/01_initial_steps_for_www.html">
+     Initial steps for www
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="drafts/05_setting_up_d-npm-port.html">
+       Setting up d-npm-port
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="drafts/08_initial_vps_setup.html">
+       Initial vps setup
+      </a>
+     </li>
+    </ul>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -222,8 +214,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../template-repo/README.html">
    Template-repo
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -242,8 +234,8 @@ const thebe_selector_output = ".output, .cell_output"
     <a class="reference internal" href="../template-repo/foo/README.html">
      Foo
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-    <label for="toctree-checkbox-4">
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -303,7 +295,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/notes/10_anki.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/notes/checking_read_write_speeds_ubuntu.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -347,28 +339,18 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#installing-anki-on-ubuntu">
-   installing anki on ubuntu
+  <a class="reference internal nav-link" href="#install-fio">
+   Install fio
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#installing-anki-connect">
-   installing anki connect
+  <a class="reference internal nav-link" href="#performing-random-write-test">
+   Performing random write test
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#installing-anki-for-vscode">
-   installing anki for vscode
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#learning-how-to-use-anki">
-   learning how to use anki
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mods">
-   Mods
+  <a class="reference internal nav-link" href="#performing-random-read-test">
+   Performing random read test
   </a>
  </li>
 </ul>
@@ -381,7 +363,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Setting up ANKI</h1>
+                <h1>How to check parallel i/o speeds and performance on ubuntu</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -392,28 +374,18 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#installing-anki-on-ubuntu">
-   installing anki on ubuntu
+  <a class="reference internal nav-link" href="#install-fio">
+   Install fio
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#installing-anki-connect">
-   installing anki connect
+  <a class="reference internal nav-link" href="#performing-random-write-test">
+   Performing random write test
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#installing-anki-for-vscode">
-   installing anki for vscode
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#learning-how-to-use-anki">
-   learning how to use anki
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mods">
-   Mods
+  <a class="reference internal nav-link" href="#performing-random-read-test">
+   Performing random read test
   </a>
  </li>
 </ul>
@@ -425,47 +397,32 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="setting-up-anki">
-<h1>Setting up ANKI<a class="headerlink" href="#setting-up-anki" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="installing-anki-on-ubuntu">
-<h2>installing anki on ubuntu<a class="headerlink" href="#installing-anki-on-ubuntu" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
-<li><p>go to <a class="reference external" href="https://apps.ankiweb.net/">https://apps.ankiweb.net/</a></p></li>
-<li><p>download anki for 2016+ linux</p></li>
-<li><p>modify PREFIX_PATH in the <a class="reference external" href="http://install.sh">install.sh</a> script</p></li>
-<li><p>add the path to anki to bashrc</p></li>
-</ol>
-</div>
-<div class="section" id="installing-anki-connect">
-<h2>installing anki connect<a class="headerlink" href="#installing-anki-connect" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
-<li><p>go to <a class="reference external" href="https://foosoft.net/projects/anki-connect/">https://foosoft.net/projects/anki-connect/</a></p></li>
-<li><p>follow the steps:</p></li>
-</ol>
+  <div class="tex2jax_ignore mathjax_ignore section" id="how-to-check-parallel-i-o-speeds-and-performance-on-ubuntu">
+<h1>How to check parallel i/o speeds and performance on ubuntu<a class="headerlink" href="#how-to-check-parallel-i-o-speeds-and-performance-on-ubuntu" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="install-fio">
+<h2>Install fio<a class="headerlink" href="#install-fio" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Open the Install Add-on dialog by selecting Tools | Add-ons | Get Add-ons… in Anki.</p></li>
-<li><p>Input 2055492159 into the text box labeled Code and press the OK button to proceed.</p></li>
-<li><p>Restart Anki when prompted to do so in order to complete the installation of Anki-Connect.</p></li>
+<li><p>fio stands for flexible I/O tester</p></li>
+<li><p>used for benchmarking and stress/hardware verification</p></li>
+<li><p>can be installed directly using apt</p></li>
+<li><p>parallel I/O inbuilt</p></li>
 </ul>
+<p>To install</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install fio
+</pre></div>
 </div>
-<div class="section" id="installing-anki-for-vscode">
-<h2>installing anki for vscode<a class="headerlink" href="#installing-anki-for-vscode" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
-<li><p>Source : <a class="reference external" href="https://github.com/jasonwilliams/anki">https://github.com/jasonwilliams/anki</a></p></li>
-<li><p>On vscode exentions - get anki for vscode (jason williams)</p></li>
-<li><p>i changed the default deck to allcards in settings for this extension</p></li>
-<li><p>make sure anki is on and working when you install and first use this exetension.</p></li>
-</ol>
 </div>
-<div class="section" id="learning-how-to-use-anki">
-<h2>learning how to use anki<a class="headerlink" href="#learning-how-to-use-anki" title="Permalink to this headline">¶</a></h2>
-<p>source: <a class="reference external" href="https://docs.ankiweb.net/getting-started.html">https://docs.ankiweb.net/getting-started.html</a></p>
+<div class="section" id="performing-random-write-test">
+<h2>Performing random write test<a class="headerlink" href="#performing-random-write-test" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo fio --name<span class="o">=</span>randwrite --ioengine<span class="o">=</span>libaio --iodepth<span class="o">=</span><span class="m">1</span> --rw<span class="o">=</span>randwrite --bs<span class="o">=</span>4k --direct<span class="o">=</span><span class="m">0</span> --size<span class="o">=</span>512M --numjobs<span class="o">=</span><span class="m">2</span> --runtime<span class="o">=</span><span class="m">240</span> --group_reporting
+</pre></div>
 </div>
-<div class="section" id="mods">
-<h2>Mods<a class="headerlink" href="#mods" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
-<li><p>I edited the card seprator from ## to ##aa so that I can have cards within normal md files as well.</p></li>
-</ol>
+</div>
+<div class="section" id="performing-random-read-test">
+<h2>Performing random read test<a class="headerlink" href="#performing-random-read-test" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo fio --name<span class="o">=</span>randread --ioengine<span class="o">=</span>libaio --iodepth<span class="o">=</span><span class="m">16</span> --rw<span class="o">=</span>randread --bs<span class="o">=</span>4k --direct<span class="o">=</span><span class="m">0</span> --size<span class="o">=</span>512M --numjobs<span class="o">=</span><span class="m">4</span> --runtime<span class="o">=</span><span class="m">240</span> --group_reporting
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -494,17 +451,17 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="09_settingup_nginx.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="allbout_cosmo.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Setting up ngnix on a fresh VPS</p>
+            <p class="prev-next-title">Understanding COSMO</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="11_modifying_bash_history.html" title="next page">
+    <a class='right-next' id="next-link" href="default_setup_vps.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Enhanching bash history setup</p>
+        <p class="prev-next-title">Setting up fresh VPS with nginx reverse proxy and 2 demo apps</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
