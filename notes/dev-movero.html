@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Developing Movero &#8212; Notes, thoughts and howto&#39;s</title>
+    <title>Developing Movero (MCH) &#8212; Notes, thoughts and howto&#39;s</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -420,9 +420,35 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what">
-   What:
+  <a class="reference internal nav-link" href="#definitions">
+   Definitions:
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what">
+   What ?:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why">
+   Why ?:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#log">
+   LOG :
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     2022-06-16
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -433,7 +459,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Developing Movero</h1>
+                <h1>Developing Movero (MCH)</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -444,9 +470,35 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what">
-   What:
+  <a class="reference internal nav-link" href="#definitions">
+   Definitions:
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what">
+   What ?:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why">
+   Why ?:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#log">
+   LOG :
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     2022-06-16
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -458,13 +510,41 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="developing-movero">
-<h1>Developing Movero<a class="headerlink" href="#developing-movero" title="Permalink to this headline">#</a></h1>
-<section id="what">
-<h2>What:<a class="headerlink" href="#what" title="Permalink to this headline">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="developing-movero-mch">
+<h1>Developing Movero (MCH)<a class="headerlink" href="#developing-movero-mch" title="Permalink to this headline">#</a></h1>
+<section id="definitions">
+<h2>Definitions:<a class="headerlink" href="#definitions" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>Movero : MCH’s verification software and</p></li>
+<li><p>Movero : MCH’s verification software (<a class="reference external" href="https://github.com/MeteoSwiss-APN/movero">https://github.com/MeteoSwiss-APN/movero</a>)</p></li>
+<li><p>DWH Service: the big database of all observational data at MCH</p></li>
 </ul>
+</section>
+<section id="what">
+<h2>What ?:<a class="headerlink" href="#what" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>The current functionality of movero needs to be extended to include snow variables: Snow temperature and Snow height</p></li>
+</ul>
+</section>
+<section id="why">
+<h2>Why ?:<a class="headerlink" href="#why" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Currently movero does NOT include snow variables and me and sascha have essentially ‘rolled your own’ solutions - not a very durable approach.</p></li>
+<li><p>This development will bring a systematic approach to evaluating snowpolino.</p></li>
+<li><p>This work is happening now because DWH service has uploaded imis stations to it’s database and therefore, it becomes possible to use movero’s extensive framework for this purpose.</p></li>
+</ul>
+</section>
+<section id="log">
+<h2>LOG :<a class="headerlink" href="#log" title="Permalink to this headline">#</a></h2>
+<section id="id1">
+<h3>2022-06-16<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>setting up this dev doc</p></li>
+<li></li>
+</ul>
+</section>
+<section id="id2">
+<h3><a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+</section>
 </section>
 </section>
 
