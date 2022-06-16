@@ -2,4 +2,4 @@
 
 ## What:
 
-- Movero : MCH's dev tool
+- Movero : MCH's verification software and
