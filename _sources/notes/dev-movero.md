@@ -20,6 +20,20 @@
 #### 2022-06-16
 
 - setting up this dev doc
--
+- created a new exp file in ~/movero/config/versions/snow_test.exp.
+
+  - This file is based on ~/movero/config/versions/fieldextra_kenda-2-hc
+  - the diff is only to add snow
+
+```bash
+# Observation types
+# MOVERO_DATABASE=dwh:    'synop', 'surface', 'snow', 'pollen', or 'tnx'
+#              file:   path including name of observational files,
+#                      may contain placeholders <yyyy>, <yy>,<mm>, <dd>
+export MOVERO_OBS_TYPE=snow
+
+```
+
+- through daniel, created a new dwh_retreive extraction template to include snow variables (surface_snowverif)
 
 ####
