@@ -1,3 +1,0 @@
-# FOO
-
-in folder foo
