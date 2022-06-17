@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>random snippets for ubuntu &#8212; Notes, thoughts and howto&#39;s</title>
+    <title>common snippets for github cli &#8212; Notes, thoughts and howto&#39;s</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Setting up ANKI" href="setting_up_anki.html" />
-    <link rel="prev" title="A hello world example for using vscode with anki" href="HW_vscode_anki.html" />
+    <link rel="next" title="A hello world example for using vscode with anki" href="HW_vscode_anki.html" />
+    <link rel="prev" title="Learning about raytracing" href="dev-rt.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -191,8 +191,8 @@ const thebe_selector_output = ".output, .cell_output"
      Dev-rt
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="ghcli_snippets.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Ghcli snippets
     </a>
    </li>
@@ -201,8 +201,8 @@ const thebe_selector_output = ".output, .cell_output"
      Hw vscode anki
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="random_ubuntu_stuff.html">
      Random ubuntu stuff
     </a>
    </li>
@@ -414,7 +414,7 @@ title="Source repository"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/notes/random_ubuntu_stuff.md"
+        <a href="../_sources/notes/ghcli_snippets.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -474,29 +474,16 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#cleaning-up-apt-cmdline">
-   cleaning up apt (CMDLINE)
+  <a class="reference internal nav-link" href="#to-create-a-new-repo-on-vsharma-next">
+   to create a new repo on vsharma-next
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#adding-stuff-to-startup-gui">
-   adding stuff to startup (GUI)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#grep">
-   grep
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sudo-apt">
-   sudo apt
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#enhanching-bash-history-setup">
-   Enhanching bash history setup
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     2022-06-17
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -507,7 +494,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>random snippets for ubuntu</h1>
+                <h1>common snippets for github cli</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -518,29 +505,16 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#cleaning-up-apt-cmdline">
-   cleaning up apt (CMDLINE)
+  <a class="reference internal nav-link" href="#to-create-a-new-repo-on-vsharma-next">
+   to create a new repo on vsharma-next
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#adding-stuff-to-startup-gui">
-   adding stuff to startup (GUI)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#grep">
-   grep
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sudo-apt">
-   sudo apt
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#enhanching-bash-history-setup">
-   Enhanching bash history setup
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     2022-06-17
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -552,91 +526,25 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="random-snippets-for-ubuntu">
-<h1>random snippets for ubuntu<a class="headerlink" href="#random-snippets-for-ubuntu" title="Permalink to this headline">#</a></h1>
-<section id="cleaning-up-apt-cmdline">
-<h2>cleaning up apt (CMDLINE)<a class="headerlink" href="#cleaning-up-apt-cmdline" title="Permalink to this headline">#</a></h2>
-<p>to remove a repo from apt sources,</p>
-<ol class="simple">
-<li><p>remove entry from <code class="docutils literal notranslate"><span class="pre">/etc/apt/sources.list</span></code>. The entry should look like <code class="docutils literal notranslate"><span class="pre">deb</span> <span class="pre">http://ch.archive.ubuntu.com/ubuntu/</span> <span class="pre">focal</span> <span class="pre">multiverse</span></code></p></li>
-<li><p>delete repo keys</p></li>
-</ol>
+  <section class="tex2jax_ignore mathjax_ignore" id="common-snippets-for-github-cli">
+<h1>common snippets for github cli<a class="headerlink" href="#common-snippets-for-github-cli" title="Permalink to this headline">#</a></h1>
+<section id="to-create-a-new-repo-on-vsharma-next">
+<h2>to create a new repo on vsharma-next<a class="headerlink" href="#to-create-a-new-repo-on-vsharma-next" title="Permalink to this headline">#</a></h2>
+<section id="id1">
+<h3>2022-06-17<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-key</span> <span class="pre">list</span></code></p></li>
-<li><p>get the 40 character long HEX value from APT</p></li>
-<li><p>use sudo apt-key del “PUT HEX VALUE HERE” - for example <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-key</span> <span class="pre">del</span> <span class="pre">&quot;3820</span> <span class="pre">03C2</span> <span class="pre">C8B7</span> <span class="pre">B4AB</span> <span class="pre">813E</span> <span class="pre">915B</span> <span class="pre">14E4</span> <span class="pre">9429</span> <span class="pre">73C6</span> <span class="pre">2A1B&quot;</span> </code></p></li>
+<li><p>create the repo on github and create a local clone</p></li>
 </ul>
-</section>
-<section id="adding-stuff-to-startup-gui">
-<h2>adding stuff to startup (GUI)<a class="headerlink" href="#adding-stuff-to-startup-gui" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p>open startup application</p></li>
-<li><p>add just the command you want executed at startup ( the same command that you would type if you were running the app from thhe terminal )</p></li>
-</ul>
-</section>
-<section id="grep">
-<h2>grep<a class="headerlink" href="#grep" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p>to return the word containing a search string (and not the entire line)</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">grep</span> <span class="o">-</span><span class="n">i</span> <span class="o">-</span><span class="n">r</span> <span class="o">-</span><span class="n">o</span> <span class="s1">&#39;\w*itype\w*&#39;</span> <span class="o">./</span><span class="n">sfc_terra</span><span class="o">.</span><span class="n">f90</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gh</span> <span class="n">repo</span> <span class="n">create</span> <span class="n">sandbox_rt_jacco</span> <span class="o">--</span><span class="n">public</span> <span class="o">--</span><span class="n">template</span> <span class="n">template</span><span class="o">-</span><span class="n">repo</span> <span class="o">--</span><span class="n">clone</span>
 </pre></div>
 </div>
-<p>returns all words with itype in it.</p>
 <ul class="simple">
-<li><p>return only unique values</p></li>
+<li><p>add the secret to automatically add docs to jupyter-book</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">grep</span> <span class="o">-</span><span class="n">i</span> <span class="o">-</span><span class="n">r</span> <span class="o">-</span><span class="n">o</span> <span class="s1">&#39;\w*itype\w*&#39;</span> <span class="o">./</span><span class="n">sfc_terra</span><span class="o">.</span><span class="n">f90</span> <span class="o">|</span> <span class="n">sort</span> <span class="o">|</span> <span class="n">uniq</span>
-</pre></div>
-</div>
-<p>returns only unique values from the match</p>
-</section>
-<section id="sudo-apt">
-<h2>sudo apt<a class="headerlink" href="#sudo-apt" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p>to suppress output and assume yes to all imports</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="o">-</span><span class="n">yqq</span> <span class="n">instal</span> <span class="n">xxxyyyzzz</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gh</span> <span class="n">secret</span> <span class="nb">set</span> <span class="n">API_TOKEN_GITHUB</span> <span class="o">&lt;</span> <span class="n">GA_PAT</span><span class="o">.</span><span class="n">txt</span>
 </pre></div>
 </div>
 </section>
-<section id="enhanching-bash-history-setup">
-<h2>Enhanching bash history setup<a class="headerlink" href="#enhanching-bash-history-setup" title="Permalink to this headline">#</a></h2>
-<p>Source: <a class="reference external" href="https://www.thomaslaurenson.com/blog/2018-07-02/better-bash-history/">https://www.thomaslaurenson.com/blog/2018-07-02/better-bash-history/</a></p>
-<ol class="simple">
-<li><p>I added this to my /etc/bash.bashrc</p></li>
-<li><p>extended /etc/bash.bashrc is</p></li>
-</ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print the timestamp of each command</span>
-<span class="n">HISTTIMEFORMAT</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%F</span><span class="s1"> %T &#39;</span>
-
-<span class="c1"># Save 100000 lines of history in memory</span>
-<span class="n">HISTSIZE</span><span class="o">=</span><span class="mi">100000</span>
-<span class="c1"># Save 2,000,000 lines of history to disk (will have to grep ~/.bash_history for full listing)</span>
-<span class="n">HISTFILESIZE</span><span class="o">=</span><span class="mi">2000000</span>
-<span class="c1"># Do not store a duplicate of the last entered command</span>
-<span class="n">HISTCONTROL</span><span class="o">=</span><span class="n">ignoredups</span>
-<span class="c1"># Ignore more</span>
-<span class="n">HISTIGNORE</span><span class="o">=</span><span class="s1">&#39;ls:ll:ll -htr:clear:history&#39;</span>
-
-<span class="c1"># Configure BASH to append (rather than overwrite the history):</span>
-<span class="n">shopt</span> <span class="o">-</span><span class="n">s</span> <span class="n">histappend</span>
-
-<span class="c1"># Attempt to save all lines of a multiple-line command in the same entry</span>
-<span class="n">shopt</span> <span class="o">-</span><span class="n">s</span> <span class="n">cmdhist</span>
-
-<span class="c1"># save multi-line commands to the history with embedded newlines</span>
-<span class="n">shopt</span> <span class="o">-</span><span class="n">s</span> <span class="n">lithist</span>
-
-<span class="c1"># After each command, append to the history file and reread it</span>
-<span class="n">export</span> <span class="n">PROMPT_COMMAND</span><span class="o">=</span><span class="s2">&quot;${PROMPT_COMMAND:+$PROMPT_COMMAND$&quot;</span>\<span class="n">n</span><span class="s2">&quot;}history -a; history -c; history -r&quot;</span>
-
-</pre></div>
-</div>
-<ol class="simple">
-<li><p>make sure you are using sudo vim …</p></li>
-<li><p>Added the same edits to .bashrc on mch/daint</p></li>
-</ol>
 </section>
 </section>
 
@@ -667,17 +575,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="HW_vscode_anki.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="dev-rt.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">A hello world example for using vscode with anki</p>
+            <p class="prev-next-title">Learning about raytracing</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="setting_up_anki.html" title="next page">
+    <a class='right-next' id="next-link" href="HW_vscode_anki.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Setting up ANKI</p>
+        <p class="prev-next-title">A hello world example for using vscode with anki</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
