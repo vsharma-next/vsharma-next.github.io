@@ -192,6 +192,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="exploring_python_optix.html">
+     Exploring python optix
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="ghcli_snippets.html">
      Ghcli snippets
     </a>
@@ -473,6 +478,7 @@ title="Print to PDF"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id2">
+     2022-06-20
     </a>
    </li>
   </ul>
@@ -523,6 +529,7 @@ title="Print to PDF"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id2">
+     2022-06-20
     </a>
    </li>
   </ul>
@@ -568,7 +575,7 @@ title="Print to PDF"
 <li><p>setting up this dev doc</p></li>
 <li><p>created a new exp file in ~/movero/config/versions/snow_test.exp.</p>
 <ul>
-<li><p>This file is based on ~/movero/config/versions/fieldextra_kenda-2-hc</p></li>
+<li><p>This file is based on ~/movero/config/versions/kenda-2-hc_ch.exp</p></li>
 <li><p>the diff is only to add snow</p></li>
 </ul>
 </li>
@@ -583,9 +590,69 @@ title="Print to PDF"
 <ul class="simple">
 <li><p>through daniel, created a new dwh_retreive extraction template to include snow variables (surface_snowverif)</p></li>
 </ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dwh_retrieve -s surface_snowverif -t <span class="m">202112150000</span>-202112160000 --fmt ascii
+</pre></div>
+</div>
 </section>
 <section id="id2">
-<h3><a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<h3>2022-06-20<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>just verified that there is data in /store/s83/vsharma/EXP_TST/3xx - there are three folders 301,302, 304</p></li>
+<li><p>the command to run movero is</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>batchPP -p pp-serial -t <span class="m">120</span> <span class="s2">&quot;/users/vsharma/movero/bin/movero-verify --force=get_mod --show-log --base-time=2020092512,2020092612 --base-hour=12 --category=Test-suites --directory=seasons --config=kenda-2-hc_ch.exp 302&quot;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>modified ./scripts/movero_get_obs to add snow as an analysis type</p></li>
+</ul>
+<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="c1"># THIS IS THE SAME AS THE ORIGINAL</span>
+                <span class="n">pollen</span><span class="p">)</span>
+                    <span class="c1"># DWH pollen data</span>
+                    <span class="c1"># 0-0 UTC mean ALNU24, AMBR24, BETU24, POAC24 = ?,4861,4839,4870</span>
+                    <span class="c1"># 6-6 UTC mean ALNU24, AMBR24, BETU24, POAC24 = 1315,1424,1323,1469</span>
+                    <span class="c1"># 2 h mean     ALNU2,  AMBR2,  BETU2,  POAC2  = ?,4490,4494,4520</span>
+                    <span class="c1"># hourly mean  ALNU,   AMBR,   BETU,   POAC   = ?,?,?,?</span>
+                    <span class="n">cat</span> <span class="o">&gt;</span> <span class="vg">$obs_retrieval</span><span class="o">.</span><span class="n">tmp</span> <span class="o">&lt;&lt;</span><span class="dl">EOF</span>
+<span class="sh">$dwh_retrieve_cmd $dwh_env_opt -t ${day}0000-${day}2359 -s surface_stations \</span>
+<span class="sh">              -p 1323,1424,1469,1315 \</span>
+<span class="sh">              -i nat_abbr,PBS,PBE,PBU,PDS,PGE,PCF,PLS,PLO,PLU,PLZ,PMU,PNE,PVI,PZH \</span>
+<span class="sh">              -f $format -o $obs_dir/$obs_file_day</span>
+<span class="dl">EOF</span>
+                    <span class="p">;;</span>
+<span class="c1"># ADDED BY ME</span>
+                <span class="n">snow</span><span class="p">)</span>
+
+                    <span class="c1"># Parameters for CH surface data</span>
+                    <span class="n">param_list</span><span class="o">=</span><span class="mi">162</span><span class="p">,</span><span class="mi">3567</span>
+                    <span class="c1">#         T_SNOW , H_SNOW</span>
+
+                    <span class="c1"># Write retrieval command</span>
+                    <span class="c1"># Getting snow data (newly added SLF stations for example) from DWH services</span>
+                    <span class="c1"># Using a newly setup dwh_retrieve type called surface_snowverif</span>
+                    <span class="n">cat</span> <span class="o">&gt;</span> <span class="vg">$obs_retrieval</span><span class="o">.</span><span class="n">tmp</span> <span class="o">&lt;&lt;</span><span class="dl">EOF</span>
+<span class="sh">$dwh_retrieve_cmd $dwh_env_opt -t ${day}0000-${day}2359 -s surface_snowverif \</span>
+<span class="sh">              -f $format -o $obs_dir/$obs_file_day</span>
+<span class="dl">EOF</span>
+
+                    <span class="p">;;</span>
+</pre></div>
+</div>
+<p>**This makes it possible to get OBSERVATION data for movero to work with. Next step: make sure model data is also attracted **</p>
+<ul class="simple">
+<li><p>To get model data into movero with snow:</p>
+<ul>
+<li><p>created folder /users/vsharma/movero/config/fieldextra_snow_test</p></li>
+<li><p>essentially copied the template of the folder fieldextra_kenda-2-hc</p>
+<ul>
+<li><p>created the 3 HEADER files (fieldextra_HEADER_XXX)</p></li>
+<li><p>created 2 files fieldextra-T_SNOW &amp; fieldextra-H_SNOW</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>**Important: RE-INSTALL movero ! **</p></li>
+</ul>
 </section>
 </section>
 </section>

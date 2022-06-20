@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Learning about raytracing &#8212; Notes, thoughts and howto&#39;s</title>
+    <title>exploring python-optix &#8212; Notes, thoughts and howto&#39;s</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="exploring python-optix" href="exploring_python_optix.html" />
-    <link rel="prev" title="Developing Movero (MCH)" href="dev-movero.html" />
+    <link rel="next" title="common snippets for github cli" href="ghcli_snippets.html" />
+    <link rel="prev" title="Learning about raytracing" href="dev-rt.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -186,13 +186,13 @@ const thebe_selector_output = ".output, .cell_output"
      Dev-movero
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="dev-rt.html">
      Dev-rt
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="exploring_python_optix.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Exploring python optix
     </a>
    </li>
@@ -392,7 +392,7 @@ title="Source repository"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/notes/dev-rt.md"
+        <a href="../_sources/notes/exploring_python_optix.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -429,60 +429,23 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   2022-06-17
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Learning about raytracing</h1>
+                <h1>exploring python-optix</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   2022-06-17
-  </a>
- </li>
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
@@ -490,26 +453,10 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="learning-about-raytracing">
-<h1>Learning about raytracing<a class="headerlink" href="#learning-about-raytracing" title="Permalink to this headline">#</a></h1>
-<section id="id1">
-<h2>2022-06-17<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p>starting with jacco’s course (<a class="reference external" href="https://jacco.ompf2.com/2022/04/13/how-to-build-a-bvh-part-1-basics/">https://jacco.ompf2.com/2022/04/13/how-to-build-a-bvh-part-1-basics/</a>)</p></li>
-<li><p>create a repo in SOLAR_SHERPA</p></li>
-<li><p>create a folder 01_basics for chapter 1</p></li>
-<li><p>learnt about :</p>
-<ul>
-<li><p>type alias using <strong>typedef</strong></p></li>
-<li><p>aligned memory allocations using macros</p></li>
-<li><p>default constructor (introduced in c++11)</p></li>
-<li><p>that ubuntu does not ship with intrin.h</p></li>
-<li><p>cleaned up jacco’s template to simplify a bit</p></li>
-<li></li>
-</ul>
-</li>
-</ul>
-</section>
+  <section class="tex2jax_ignore mathjax_ignore" id="exploring-python-optix">
+<h1>exploring python-optix<a class="headerlink" href="#exploring-python-optix" title="Permalink to this headline">#</a></h1>
+<p>mamba install -c conda-forge python=3.8 cudatoolkit=11.6 cupy cython numpy cuda-python=11.6 pip pyglfw</p>
+<p>pip install imgui[glfw] PyOpenGL PyOpenGL_accelerate</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -539,17 +486,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="dev-movero.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="dev-rt.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Developing Movero (MCH)</p>
+            <p class="prev-next-title">Learning about raytracing</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="exploring_python_optix.html" title="next page">
+    <a class='right-next' id="next-link" href="ghcli_snippets.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">exploring python-optix</p>
+        <p class="prev-next-title">common snippets for github cli</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
